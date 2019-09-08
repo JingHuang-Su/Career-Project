@@ -1,0 +1,54 @@
+.header {
+  background-color: $color-secondary;
+  grid-column: full-start/full-end;
+  padding: 1rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 0.5rem;
+  }
+
+  a {
+    outline: none;
+  }
+}
+
+.logo {
+  float: left;
+  height: 4rem;
+  margin-left: 1rem;
+}
+
+// Using float to displays navbar
+// this feature also can use flexbox and grid,
+// but just want to try some float property also can do the same thing
+.navigation {
+  &__nav {
+    float: right;
+    margin-top: 1rem;
+  }
+
+  &__list {
+    display: inline-block;
+    list-style: none;
+  }
+  &__item {
+    float: left;
+    padding: 0 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 0 1rem;
+    }
+
+    a {
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: $color-white;
+      transition: all 2s;
+      outline: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

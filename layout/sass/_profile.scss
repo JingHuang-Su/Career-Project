@@ -1,0 +1,294 @@
+.profile {
+  grid-area: 2 / content-start/3/content-end;
+  margin: 4rem;
+
+  display: grid;
+  grid-template-rows: repeat(8, min-content);
+  grid-template-columns: 60vw;
+  grid-row-gap: 1rem;
+  justify-content: center;
+  align-content: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-area: 2 / full-start/3/full-end;
+    margin: 2rem;
+    grid-template-columns: 80vw;
+  }
+
+  &__iconslist {
+    padding: 1rem;
+    margin-bottom: 1.3rem;
+    background-color: $color-secondary-light;
+  }
+
+  &__intro {
+    grid-area: 1/1/2/-1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 2rem;
+    @extend %outerbox;
+    color: $color-grey-dark-1;
+    p {
+      color: $color-grey-light-2;
+      font-weight: 500;
+      span {
+        color: $color-grey-dark-1;
+        font-weight: 600;
+      }
+    }
+
+    &--img {
+      img {
+        border: 1px solid $color-grey-light-6;
+        border-radius: 100%;
+        width: 12rem;
+        height: 12rem;
+      }
+    }
+  }
+  &__bio {
+    grid-area: 2/1/3/-1;
+    @extend %outerbox;
+  }
+  &__exp {
+    grid-area: 3/1/4/-1;
+    @extend %outerbox;
+  }
+
+  &__edu {
+    grid-area: 4/1/5/-1;
+    @extend %outerbox;
+  }
+  &__skills {
+    grid-area: 5/1/6/-1;
+    @extend %outerbox;
+
+    &--box {
+      @extend %innerbox;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(5rem, 15rem));
+      grid-gap: 1.5rem;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      justify-items: center;
+    }
+  }
+  &__dashboard {
+    display: flex;
+    align-items: center;
+  }
+  &__other {
+    grid-area: 6/1/7/-1;
+    @extend %outerbox;
+  }
+  &__certification {
+    grid-area: 7/1/8/-1;
+    @extend %outerbox;
+    &--outer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 15rem);
+      grid-gap: 1.2rem;
+      justify-content: center;
+    }
+  }
+
+  &__github {
+    grid-area: 8/1/9/-1;
+    @extend %outerbox;
+  }
+  //skill box(small one)
+  &__skill {
+    display: flex;
+    position: relative;
+    justify-items: center;
+    align-items: center;
+    font-weight: 600;
+    box-shadow: 0 1px 6px $color-grey-light-5;
+
+    &:hover {
+      box-shadow: 0 1px 10px $color-grey-light-5;
+      transform: translateY(-2px);
+    }
+    &--name {
+      flex: 0 0 40%;
+      padding: 1rem;
+    }
+
+    &--cer {
+      flex: 0 0 60%;
+      padding: 1rem;
+      font-weight: 800;
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: $font-primary;
+    letter-spacing: 1px;
+    color: $color-grey-dark-1;
+    margin-bottom: 1rem;
+    &--sub {
+      font-size: 1.5rem;
+      margin-left: 2rem;
+    }
+  }
+
+  &__cerbox {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    border: 1px solid $color-grey-light-6;
+    border-radius: 2px;
+    box-shadow: 0 1px 6px $color-grey-light-5;
+    div {
+      &:not(:last-of-type) {
+        padding: 0.5rem 0;
+      }
+    }
+    color: $color-grey-dark-1;
+    &--name {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid $color-grey-light-6;
+    }
+    &--date,
+    &--score {
+      font-size: 1.2rem;
+      color: $color-grey-light-2;
+    }
+    &:hover {
+      box-shadow: 0 1px 10px $color-grey-light-5;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__box {
+    @extend %innerbox;
+    position: relative;
+    &--company,
+    &--other {
+      font-size: 2.5rem;
+      @extend %font;
+    }
+
+    &--delete {
+      position: absolute;
+      top: -5rem;
+      right: -2rem;
+
+      button {
+        position: absolute;
+        top: 2rem;
+        right: 0;
+        border: none;
+        background-color: $color-secondary-light;
+        padding-left: 5px;
+        padding-right: 1rem;
+        text-decoration: none;
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+        font-weight: 500;
+
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 2rem;
+        }
+
+        svg {
+          position: absolute;
+          top: 2rem;
+          right: 0;
+          fill: $color-primary-light;
+          height: 2rem;
+          width: 2rem;
+          margin-right: 1rem;
+          transition: all 0.2s;
+          &:hover {
+            border: 0.2rem solid rgba($color-primary, 0.7);
+            border-radius: 100%;
+          }
+        }
+      }
+    }
+    &--position,
+    &--paragraph,
+    &--description span {
+      @extend %font;
+    }
+
+    &--reponame {
+      font-size: 1.5rem;
+      @extend %font;
+      padding-bottom: 3px;
+      border-bottom: 1px solid $color-grey-light-6;
+      display: inline;
+
+      a {
+        text-decoration: none;
+        color: $color-grey-dark-1;
+      }
+    }
+
+    &--repoinfo {
+      display: flex;
+      padding-top: 1rem;
+      div {
+        padding-right: 2rem;
+
+        span {
+          font-weight: 500;
+        }
+      }
+    }
+    &--major {
+      @extend %font;
+    }
+    div {
+      &:not(:last-child) {
+        margin-bottom: 0.7rem;
+      }
+    }
+    &:hover {
+      box-shadow: 0 1px 10px $color-grey-light-5;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+%font {
+  color: $color-grey-dark-1;
+  font-weight: 600;
+}
+
+%outerbox {
+  border: 1px solid $color-grey-light-5;
+  padding: 2rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    border: none;
+    padding: 1rem;
+  }
+}
+
+%innerbox {
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid $color-grey-light-6;
+  border-radius: 2px;
+  box-shadow: 0 1px 6px $color-grey-light-5;
+  font-size: 1.5rem;
+  color: $color-grey-light-2;
+}

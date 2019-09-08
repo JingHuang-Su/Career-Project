@@ -1,0 +1,70 @@
+.feature {
+  grid-column: full-start/full-end;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 25rem);
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(auto-fit, 80vw);
+  }
+  padding: 4rem;
+  grid-gap: 2rem;
+  justify-content: center;
+  justify-items: center;
+
+  &__box {
+    background-color: rgb(251, 254, 255);
+
+    border: 1px solid $color-primary;
+    border-radius: 5%;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 2rem;
+
+    padding: 1rem;
+    @media only screen and (max-width: $bp-medium) {
+      padding: 3rem;
+    }
+    h3 {
+      color: $color-primary-dark;
+      font-weight: 600;
+      font-family: $font-primary;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      color: $color-primary-light;
+      font-family: $font-primary;
+      font-weight: 300;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__svg {
+    background-color: $color-grey-light-3;
+    height: 15rem;
+    width: 15rem;
+    margin: 0.5rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.5rem 0.5rem rgba($color-grey-light-4, 0.2);
+    svg {
+      fill: $color-grey-light-4;
+      width: 50%;
+      height: 50%;
+    }
+  }
+}

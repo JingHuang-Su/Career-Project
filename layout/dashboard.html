@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:200,300,400,500,600,700,900&display=swap&subset=chinese-traditional"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./img/logo2.png" sizes="32x32" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>SYK &mdash; 分享知識的平台</title>
+  </head>
+  <body class="container">
+    <header class="header">
+      <a href="./index.html" class="navigation__link"
+        ><img src="img/logo1.png" alt="SYK logo" class="logo"
+      /></a>
+
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="./posts.html" class="navigation__link">文章</a>
+          </li>
+          <li class="navigation__item">
+            <a href="./login.html" class="navigation__link">登入</a>
+          </li>
+          <li class="navigation__item">
+            <a href="./signup.html" class="navigation__link">註冊</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="dashboard">
+      <div class="dashboard__header">
+        <h1 class="dashboard__header--title">
+          Dashboard
+        </h1>
+        <p class="dashboard__header--sayhi">歡迎 JingHuang-Su !</p>
+      </div>
+
+      <div class="dashboard__buttons">
+        <a href="create-profile.html" class="dashboard__buttons--button">
+          <svg>
+            <use xlink:href="img/sprite.svg#plus"></use>
+          </svg>
+          新增個人資訊
+        </a>
+        <a href="add-experience.html" class="dashboard__buttons--button">
+          <svg>
+            <use xlink:href="img/sprite.svg#plus"></use>
+          </svg>
+          新增工作經歷
+        </a>
+        <a href="add-education.html" class="dashboard__buttons--button">
+          <svg>
+            <use xlink:href="img/sprite.svg#plus"></use>
+          </svg>
+          新增教育背景
+        </a>
+        <a href="add-other.html" class="dashboard__buttons--button">
+          <svg>
+            <use xlink:href="img/sprite.svg#plus"></use>
+          </svg>
+          新增其他經歷
+        </a>
+        <a href="add-certification.html" class="dashboard__buttons--button">
+          <svg>
+            <use xlink:href="img/sprite.svg#plus"></use>
+          </svg>
+          新增專業證照
+        </a>
+        <a href="add-skill.html" class="dashboard__buttons--button">
+          <svg>
+            <use xlink:href="img/sprite.svg#plus"></use>
+          </svg>
+          新增工作技能
+        </a>
+      </div>
+      <div class="profile__exp">
+        <div class="profile__title profile__dashboard">
+          工作經歷
+          <span
+            ><a href="add-experience.html" class="dashboard__buttons--button">
+              <svg>
+                <use xlink:href="img/sprite.svg#plus"></use>
+              </svg> </a
+          ></span>
+        </div>
+        <div class="profile__box">
+          <div class="profile__box--company">
+            Google
+          </div>
+          <div class="profile__box--date">
+            Oct 2011 - Current
+          </div>
+          <div class="profile__box--position">
+            Senior Developer
+          </div>
+          <div class="profile__box--description">
+            <span>description:</span> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Rerum beatae illum, quidem culpa placeat
+            dignissimos tempora veritatis fugit. Odio fuga facilis optio
+            explicabo velit at tempore quasi eius quas beatae?
+          </div>
+        </div>
+        <div class="profile__box">
+          <div class="profile__box--company">
+            Yahoo
+          </div>
+          <div class="profile__box--date">
+            Oct 2006 - Aug 2011
+          </div>
+          <div class="profile__box--position">
+            Senior Developer
+          </div>
+          <div class="profile__box--description">
+            description:lead a team the size about 122 employee.
+          </div>
+        </div>
+      </div>
+      <div class="profile__edu">
+        <div class="profile__title profile__dashboard">
+          教育背景
+          <span
+            ><a href="add-education.html" class="dashboard__buttons--button">
+              <svg>
+                <use xlink:href="img/sprite.svg#plus"></use>
+              </svg> </a
+          ></span>
+        </div>
+        <div class="profile__box">
+          <div class="profile__box--company">
+            University of California, Berkeley
+          </div>
+          <div class="profile__box--date">
+            Sep 2000 - June 2004
+          </div>
+
+          <div class="profile__box--major">
+            BA, Computer Science
+          </div>
+          <div class="profile__box--description">
+            <span>description:</span> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Rerum beatae illum, quidem culpa placeat
+            dignissimos tempora veritatis fugit. Odio fuga facilis optio
+            explicabo velit at tempore quasi eius quas beatae?
+          </div>
+          <div class="profile__box--delete">
+            <span
+              ><button >
+                <svg>
+                  <use xlink:href="img/sprite.svg#remove"></use>
+                </svg> </button
+            ></span>
+          </div>
+        </div>
+      </div>
+      <div class="profile__skills">
+        <div class="profile__title profile__dashboard">
+          技能
+          <span
+            ><a href="add-skill.html" class="dashboard__buttons--button">
+              <svg>
+                <use xlink:href="img/sprite.svg#plus"></use>
+              </svg> </a
+          ></span>
+        </div>
+        <div class="profile__skills--domainknowledge">
+          <div class="profile__title--sub">
+            產業知識
+          </div>
+          <div class="profile__skills--box"></div>
+        </div>
+        <div class="profile__skills--toolstech">
+          <div class="profile__title--sub">
+            工具和科技
+          </div>
+          <div class="profile__skills--box">
+            <div class="profile__skill">
+              <div class="profile__skill--name">
+                Python
+              </div>
+              <div class="profile__skill--cer">
+                18
+              </div>
+            </div>
+            <div class="profile__skill">
+              <div class="profile__skill--name">
+                JavaScript
+              </div>
+              <div class="profile__skill--cer">
+                99
+              </div>
+            </div>
+            <div class="profile__skill">
+              <div class="profile__skill--name">
+                ReactJS
+              </div>
+              <div class="profile__skill--cer">
+                99
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile__skills--communicate">
+          <div class="profile__title--sub">
+            人際交往
+          </div>
+          <div class="profile__skills--box"></div>
+        </div>
+        <div class="profile__skills--others">
+          <div class="profile__title--sub">
+            其他技能
+          </div>
+          <div class="profile__skills--box"></div>
+        </div>
+      </div>
+      <div class="profile__other">
+        <div class="profile__title profile__dashboard">
+          其他經歷
+          <span
+            ><a href="add-other.html" class="dashboard__buttons--button">
+              <svg>
+                <use xlink:href="img/sprite.svg#plus"></use>
+              </svg> </a
+          ></span>
+        </div>
+        <div class="profile__box">
+          <div class="profile__box--other">
+            轉聯會
+          </div>
+          <div class="profile__box--date">
+            Sep 2002 - June 2004
+          </div>
+
+          <div class="profile__box--description">
+            <span>description:</span> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Rerum beatae illum, quidem culpa placeat
+            dignissimos tempora veritatis fugit. Odio fuga facilis optio
+            explicabo velit at tempore quasi eius quas beatae?
+          </div>
+        </div>
+      </div>
+      <div class="profile__certification">
+        <div
+          class="profile__certification--title profile__title profile__dashboard"
+        >
+          證照
+          <span
+            ><a
+              href="add-certification.html"
+              class="dashboard__buttons--button"
+            >
+              <svg>
+                <use xlink:href="img/sprite.svg#plus"></use>
+              </svg> </a
+          ></span>
+        </div>
+        <div class="profile__certification--outer">
+          <div class="profile__cerbox">
+            <div class="profile__cerbox--name">
+              TOEIC
+            </div>
+            <div class="profile__cerbox--date">
+              Sep 2000
+            </div>
+
+            <div class="profile__cerbox--score">
+              800
+            </div>
+          </div>
+          <div class="profile__cerbox">
+            <div class="profile__cerbox--name">
+              CFA level 1
+            </div>
+            <div class="profile__cerbox--date">
+              Sep 2000
+            </div>
+
+            <div class="profile__cerbox--score">
+              PASSED
+            </div>
+          </div>
+          <div class="profile__cerbox">
+            <div class="profile__cerbox--name">
+              CPA
+            </div>
+            <div class="profile__cerbox--date">
+              Sep 2000
+            </div>
+
+            <div class="profile__cerbox--score">
+              PASSED
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mt-md">
+      <ul class="footer__icons">
+        <li>
+          <svg>
+            <use
+              xlink:href="img/sprite.svg#medium"
+              class="footer__icons--medium"
+            ></use>
+          </svg>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#linkedin"></use>
+          </svg>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#twitter"></use>
+          </svg>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#youtube"></use>
+          </svg>
+        </li>
+      </ul>
+      <p class="copyright ">
+        &copy; Copyright 2019 by JingHuang-Su.
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+.post {
+  padding: 4rem;
+  margin-bottom: 10rem;
+  grid-area: 2 / content-start/3/content-end;
+  @media only screen and (max-width: $bp-medium) {
+    grid-area: 2 / full-start/3/full-end;
+    padding: 2rem;
+  }
+
+  &__closer {
+    margin-left: -4rem;
+  }
+  &__grid {
+    border: 1px solid $color-primary;
+    border-radius: 5px;
+    align-items: center;
+
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  &__paragraph {
+    padding-right: 3rem;
+    letter-spacing: 0.5px;
+    color: $color-grey-dark-1;
+    p {
+      padding: 2rem 0;
+      border-top: 1px solid $color-grey-light-1;
+      border-bottom: 1px solid $color-grey-light-1;
+      font-size: 1.8rem;
+    }
+  }
+  &__form {
+    margin-right: 2rem;
+    background-color: $color-secondary-light;
+  }
+  &__commentbox {
+    overflow: hidden;
+  }
+  &__content {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    padding: 3px;
+    // width: 95%;
+    margin: 2rem 0;
+    border: 1px solid $color-primary-light;
+    background-color: $color-secondary-light;
+    border-radius: 3px;
+    font-size: $font-primary;
+
+    &--shape {
+      width: 8rem;
+      height: 8rem;
+
+      &:hover img {
+        filter: blur(3px) brightness(80%);
+      }
+
+      &:hover figcaption {
+        opacity: 1;
+        overflow: hidden;
+        transform: translateY(-160%);
+      }
+      &--img {
+        width: 8rem;
+        height: 8rem;
+        border: 1.2px solid rgb(255, 136, 136);
+        border-radius: 100%;
+        backface-visibility: hidden;
+        transition: all 0.5s;
+      }
+
+      &--caption {
+        color: $color-black;
+        font-size: 1.3rem;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.5s;
+        backface-visibility: hidden;
+
+        a {
+          color: $color-black;
+          text-decoration: none;
+
+          :focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    &--text {
+      padding: 1rem;
+
+      font-size: 1.2rem;
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.3rem;
+      }
+
+      &--heading {
+        color: $color-grey-light-2;
+        display: inline-block;
+        border-bottom: 1px solid $color-grey-light-1;
+      }
+
+      &--paragraph {
+        font-size: 1.2rem;
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

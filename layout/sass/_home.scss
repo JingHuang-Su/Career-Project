@@ -1,0 +1,39 @@
+.home {
+  grid-column: full-start/full-end;
+
+  height: 70vh;
+
+  background-image: radial-gradient(
+      rgba($color-grey-dark-3, 0.7),
+      rgba($color-grey-light-1, 0.15)
+    ),
+    url(./img/home1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    &--main {
+      color: $color-white;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+    }
+    &--sub {
+      color: $color-white;
+      font-size: 1.75rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__btn {
+    width: auto;
+    letter-spacing: 2px;
+  }
+}

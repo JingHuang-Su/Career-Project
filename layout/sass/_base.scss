@@ -1,0 +1,60 @@
+//顏色
+$color-primary-light: #3cbeff;
+$color-primary: #0582ca;
+$color-primary-dark: #006494;
+$color-secondary: #101d2c;
+$color-secondary-light: rgb(239, 245, 255);
+
+$color-grey-light-1: #e2e2ec;
+$color-grey-light-2: rgba(0, 0, 0, 0.54);
+
+$color-grey-light-3: #c0d4ff;
+$color-grey-light-4: #1c51ff;
+$color-grey-light-5: rgba(0, 0, 0, 0.2);
+$color-grey-light-6: rgba(0, 0, 0, 0.1);
+$color-grey-dark-1: rgba(0, 0, 0, 0.84);
+$color-grey-dark-2: #051923;
+$color-grey-dark-3: #0819ff;
+$color-grey-dark-4: #ee4604;
+$color-grey-dark-5: #a02f02;
+
+$color-white: #fff;
+$color-black: rgb(0, 0, 0);
+
+$font-primary: Noto Serif TC, serif;
+
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //10px = 1rem
+
+  // @media only screen and (max-width: $bp-largest) {
+  //   font-size: 50%;
+  // }
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $color-secondary-light;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: min-content min-content max-content min-content;
+  grid-template-columns:
+    [full-start] minmax(6rem, 1fr) [content-start] minmax(min-content, 75vw)
+    [content-end] minmax(6rem, 1fr)
+    [full-end];
+}

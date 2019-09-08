@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:200,300,400,500,600,700,900&display=swap&subset=chinese-traditional"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./img/logo2.png" sizes="32x32" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>SYK &mdash; 分享知識的平台</title>
+  </head>
+  <body class="container">
+    <header class="header">
+      <a href="./index.html" class="navigation__link"
+        ><img src="img/logo1.png" alt="SYK logo" class="logo"
+      /></a>
+
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="./posts.html" class="navigation__link">文章</a>
+          </li>
+          <li class="navigation__item">
+            <a href="./login.html" class="navigation__link">登入</a>
+          </li>
+          <li class="navigation__item">
+            <a href="./signup.html" class="navigation__link">註冊</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="something">
+      <h2 class="something__title">
+        建立個人資料
+      </h2>
+      <p class="something__paragraph">
+        添加一些資訊讓別人深入了解您!
+      </p>
+      <small class="something__required">* = 必填</small>
+      <form class="form something__form">
+        <div class="form__group">
+          <select class="form__input" name="status">
+            <option value="0">* 選擇您的職稱</option>
+            <option value="軟體開發人員">軟體開發人員 (Developer)</option>
+            <option value="資淺工程師">資淺工程師 (Junior Developer)</option>
+            <option value="資深工程師">資深工程師 (Senior Developer)</option>
+            <option value="經理">經理 (Manager)</option>
+            <option value="學生">學生 (Student)</option>
+            <option value="講師或教授"
+              >講師或教授 (Instructor or Professor)</option
+            >
+            <option value="實習生">實習生 (Intern)</option>
+            <option value="其他">其他 (Other)</option>
+          </select>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            placeholder="* 公司"
+            name="company"
+            required
+            class="form__input"
+            autocomplete="off"
+          />
+          <label for="name" class="form__label">公司</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            placeholder="個人網站"
+            name="website"
+            class="form__input"
+            autocomplete="off"
+          />
+          <label for="name" class="form__label">個人網站</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            placeholder="地點"
+            name="location"
+            class="form__input"
+            autocomplete="off"
+          />
+          <label for="name" class="form__label">地點</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            placeholder="Github 會員名稱"
+            name="githubusername"
+            class="form__input"
+            autocomplete="off"
+          />
+          <label for="name" class="form__label">Github 會員名稱</label>
+        </div>
+        <div class="form__group">
+          <textarea
+            name="bio"
+            cols="10"
+            rows="5"
+            placeholder="簡介"
+            class="form__input"
+          ></textarea>
+        </div>
+
+        <div>
+          <button type="button" class="btn__optional">
+            <svg>
+              <use xlink:href="img/sprite.svg#plus"></use>
+            </svg>
+          </button>
+          <span>Optional</span>
+        </div>
+
+        <div class="form__social ">
+          <svg>
+            <use xlink:href="img/sprite.svg#twitter"></use>
+          </svg>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="Twitter URL"
+            name="twitter"
+          />
+        </div>
+
+        <div class="form__social ">
+          <svg>
+            <use xlink:href="img/sprite.svg#facebook"></use>
+          </svg>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="Facebook URL"
+            name="facebook"
+          />
+        </div>
+
+        <div class="form__social ">
+          <svg>
+            <use xlink:href="img/sprite.svg#youtube"></use>
+          </svg>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="YouTube URL"
+            name="youtube"
+          />
+        </div>
+
+        <div class="form__social ">
+          <svg>
+            <use xlink:href="img/sprite.svg#linkedin"></use>
+          </svg>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="Linkedin URL"
+            name="linkedin"
+          />
+        </div>
+
+        <div class="form__social ">
+          <svg>
+            <use xlink:href="img/sprite.svg#medium"></use>
+          </svg>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="Medium URL"
+            name="medium"
+          />
+        </div>
+
+        <input type="submit" class="  btn" value="新增" />
+        <a class="  btn btn__login" href="dashboard.html">回主頁</a>
+      </form>
+    </section>
+    <footer class="footer mt-md">
+      <ul class="footer__icons">
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#medium"></use>
+          </svg>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#linkedin"></use>
+          </svg>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#twitter"></use>
+          </svg>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="img/sprite.svg#youtube"></use>
+          </svg>
+        </li>
+      </ul>
+      <p class="copyright ">
+        &copy; Copyright 2019 by JingHuang-Su.
+      </p>
+    </footer>
+  </body>
+</html>
