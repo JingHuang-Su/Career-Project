@@ -107,6 +107,19 @@
         color: $color-grey-light-2;
         display: inline-block;
         border-bottom: 1px solid $color-grey-light-1;
+        @media only screen and (max-width: $bp-medium) {
+          border-bottom: none;
+        }
+
+        a {
+          text-decoration: none;
+          color: $color-grey-light-2;
+          cursor: pointer;
+
+          @media only screen and (max-width: $bp-medium) {
+            border-bottom: 1px dashed $color-grey-light-1;
+          }
+        }
       }
 
       &--paragraph {

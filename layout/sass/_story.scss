@@ -1,6 +1,8 @@
 .story {
   grid-column: full-start/full-end;
   display: grid;
+
+  grid-row-gap: 4rem;
   grid-template-columns: repeat(2, 50vw);
   grid-template-rows: repeat(2, max-content);
   justify-items: center;

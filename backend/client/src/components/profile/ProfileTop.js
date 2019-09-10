@@ -22,9 +22,23 @@ const ProfileTop = ({
           <span> {status}</span> at <span>{company}</span>
         </p>
         <p>{location}</p>
-        <p>{website}</p>
+        <a
+          href={website}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='profile__intro--website'
+        >
+          W
+        </a>
         <div className='footer profile__iconslist'>
           <ul class='footer__icons'>
+            {website && (
+              <li class='profile__intro--website'>
+                <a href={website} target='_blank' rel='noopener noreferrer'>
+                  W
+                </a>
+              </li>
+            )}
             {social && social.medium && (
               <a href={social.medium} target='_blank' rel='noopener noreferrer'>
                 <li>

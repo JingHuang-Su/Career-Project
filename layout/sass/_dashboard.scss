@@ -1,6 +1,8 @@
 .dashboard {
   grid-area: 2 / content-start/3/content-end;
-  margin: 4rem 0;
+  margin-bottom: 10rem;
+  margin-top: 2rem;
+  padding: 2rem 0;
 
   @media only screen and (max-width: $bp-medium) {
     grid-area: 2 / full-start/3/full-end;

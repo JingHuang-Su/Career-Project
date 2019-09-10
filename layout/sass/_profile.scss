@@ -1,6 +1,7 @@
 .profile {
   grid-area: 2 / content-start/3/content-end;
-  margin: 4rem;
+  margin: 2rem;
+  padding-bottom: 15rem;
 
   display: grid;
   grid-template-rows: repeat(8, min-content);
@@ -31,6 +32,18 @@
     font-size: 2rem;
     @extend %outerbox;
     color: $color-grey-dark-1;
+
+    &--website {
+      a {
+        text-decoration: none;
+        color: $color-grey-light-2;
+        font-size: 1.5rem;
+        padding: 0.4rem;
+        font-weight: 1000;
+        border: 2px solid $color-black;
+        border-radius: 50%;
+      }
+    }
     p {
       color: $color-grey-light-2;
       font-weight: 500;

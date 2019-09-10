@@ -1,4 +1,6 @@
 .profiles {
+  margin-bottom: 14rem;
+
   grid-area: 2 / content-start/3/content-end;
   @media only screen and (max-width: $bp-medium) {
     grid-area: 2 / full-start/3/full-end;

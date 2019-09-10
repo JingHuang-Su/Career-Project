@@ -29,8 +29,7 @@ const ProfileSchema = new Schema({
       },
       skill: {
         type: String,
-        required: true,
-        unique: true
+        required: true
       },
       certificated: [
         {

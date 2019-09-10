@@ -20,9 +20,9 @@ const Experience = ({ authId, profileUserId, experience, deleteSomething }) => {
           )}
         </div>
 
-        <div className='profile__box--major'>
-          {exp.company},{` ${exp.location}`}
-        </div>
+        <div className='profile__box--major'>{exp.company}</div>
+        <div className='profile__box--major'>{` ${exp.location}`}</div>
+
         <div className='profile__box--description'>
           <span>description:</span> {exp.description}
         </div>
@@ -34,7 +34,6 @@ const Experience = ({ authId, profileUserId, experience, deleteSomething }) => {
                 onClick={() => {
                   deleteSomething('experience', exp._id);
                 }}
-                
               >
                 <svg>
                   <use xlinkHref={`${sprite}#remove`}></use>
