@@ -1,5 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
 import sprite from '../img/sprite.svg';
 
 const ProfileTop = ({

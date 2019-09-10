@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userSignup, setAlert } from '../../actions';
 import login from '../img/login1.png';
@@ -19,8 +19,9 @@ const Signup = ({ isAuth, userSignup, setAlert }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    return (password !== confirmPassword
-      ? setAlert('密碼不一致', 'danger'): userSignup({ name, email, password }));
+    return password !== confirmPassword
+      ? setAlert('密碼不一致', 'danger')
+      : userSignup({ name, email, password });
   };
 
   if (isAuth) {

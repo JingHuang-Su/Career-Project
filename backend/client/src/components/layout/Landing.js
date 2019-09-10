@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import img1 from '../img/story--1.jpg';
 import img2 from '../img/story--2.jpg';

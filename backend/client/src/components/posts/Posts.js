@@ -12,7 +12,7 @@ const Posts = ({ getPosts, posts: { posts, loading }, auth }) => {
 
   useEffect(() => {
     getPosts(category);
-  }, [category]);
+  }, [getPosts, category]);
 
   const onClick = e => {
     setButtonData({ category: e.target.value });

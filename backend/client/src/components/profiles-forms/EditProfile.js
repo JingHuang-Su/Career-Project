@@ -31,7 +31,6 @@ const EditProfile = ({
     githubusername,
     about,
     twitter,
-    facebook,
     linkedin,
     youtube,
     medium
@@ -48,7 +47,7 @@ const EditProfile = ({
 
   useEffect(() => {
     getCurrentProfile();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     setFormData({
       company: loading || !profile.company ? '' : profile.company,
       website: loading || !profile.website ? '' : profile.website,
@@ -63,6 +62,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? '' : profile.social.youtube,
       medium: loading || !profile.social ? '' : profile.social.medium
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, getCurrentProfile]);
 
   return loading && profile === null ? (
