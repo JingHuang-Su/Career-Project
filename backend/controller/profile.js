@@ -2,6 +2,7 @@ const config = require('config');
 const request = require('request');
 const Profile = require('../model/Profile');
 const User = require('../model/User');
+const { validationResult } = require('express-validator');
 
 // @route    GET profile/me
 // @desc     Get current users profile
@@ -26,6 +27,10 @@ exports.getProfile = async (req, res, next) => {
 // @desc     Create or update user profile
 // @access   Private
 exports.postProfile = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const {
     company,
     website,
@@ -130,6 +135,10 @@ exports.delProfile = async (req, res, next) => {
 // @desc     Add profile experience
 // @access   Private
 exports.putExp = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const { title, company, location, from, to, current, description } = req.body;
   const newExp = { title, company, location, from, to, current, description };
   try {
@@ -171,6 +180,10 @@ exports.delExp = async (req, res, next) => {
 // @desc     Add profile education
 // @access   Private
 exports.putEdu = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const { school, degree, major, from, to, current, description } = req.body;
   const newEdu = { school, degree, major, from, to, current, description };
   try {
@@ -214,6 +227,10 @@ exports.delEdu = async (req, res, next) => {
 // @desc     Add profile certification
 // @access   Private
 exports.putCer = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const { certificationName, getDay, description } = req.body;
   const newCer = { certificationName, getDay, description };
   try {
@@ -258,6 +275,10 @@ exports.delCer = async (req, res, next) => {
 // @desc     Add profile other
 // @access   Private
 exports.putOthers = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const { otherName, from, to, current, description } = req.body;
   const newOther = { otherName, from, to, current, description };
   try {
@@ -331,8 +352,13 @@ exports.getGithub = async (req, res, next) => {
 // @access   Private/
 
 exports.putSkills = async (req, res, next) => {
-  const { category, skill } = req.body;
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
+    const { category, skill } = req.body;
     const userId = req.user.id;
     const profile = await Profile.findOne({ user: userId });
     let profileSkills = {};

@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 const User = require('../model/User');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const { validationResult } = require('express-validator');
 
 // @route    GET auth
 // @desc     Test route
@@ -22,8 +23,13 @@ exports.getAuth = async (req, res, next) => {
 // @desc     Authenticate user & getToken
 // @access   Public
 exports.postLogin = async (req, res, next) => {
-  const { email, password } = req.body;
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
+    const { email, password } = req.body;
     let user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ errors: [{ msg: '帳密無效' }] });
@@ -56,9 +62,13 @@ exports.postLogin = async (req, res, next) => {
 // @access   Public
 exports.postSignup = async (req, res, next) => {
   // User create the from and send the request to our server
-  const { name, email, password } = req.body;
 
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   try {
+    const { name, email, password } = req.body;
     let user = await User.findOne({ email: email });
     if (user) {
       return res.status(400).json({ error: [{ msg: '此帳號已經被註冊了' }] });

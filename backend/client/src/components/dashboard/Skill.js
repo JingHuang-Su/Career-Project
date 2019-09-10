@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteSomething, addCer } from '../../actions';
 
-const Skill = ({ authId, profileUserId, skill, deleteSomething, addCer }) => {
+const Skill = ({
+  authId,
+  profileUserId,
+  skill,
+  deleteSomething,
+  addCer,
+  skills
+}) => {
   console.log(skill);
   const skillsDomain = skill
     .filter(s => s.category === '產業知識')

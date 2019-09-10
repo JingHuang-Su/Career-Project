@@ -50,13 +50,6 @@ export default (state = initialState, action) => {
 
         loading: false
       };
-    // case GET.C:
-    //   return {
-    //     ...state,
-    //     profile: null,
-    //     repos: [],
-    //     loading: false
-    //   };
     default:
       return state;
   }

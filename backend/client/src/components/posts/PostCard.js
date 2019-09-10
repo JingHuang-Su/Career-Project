@@ -1,55 +1,71 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import sprite from '../img/sprite.svg';
 import { connect } from 'react-redux';
 import { addLike, removeLike } from '../../actions';
 
-const PostCard = ({
-  addLike,
-  removeLike,
-  auth,
-  post: { _id, title, name, user, date, likes, comments, category }
-  // ,showActions
-}) => {
+const PostCard = ({ addLike, removeLike, auth, vis, posts }) => {
+  const [visibleData, setVisibleData] = useState({
+    visible: 5
+  });
+  const { visible } = visibleData;
+
+  const loadMore = () => {
+    setVisibleData(() => {
+      return { visible: vis + 4 };
+    });
+  };
+
   return (
     <Fragment>
-      <div class='posts__grid'>
-        <div class='posts__criteria'>
-          <button onClick={() => addLike(_id)} type='button'>
-            <svg>
-              <use xlinkHref={`${sprite}#caret-arrow-up`} />
-            </svg>
-          </button>
-          <span class='posts__criteria--num'>{likes.length}</span>
-          <button onClick={() => removeLike(_id)} type='button'>
-            <svg>
-              <use xlinkHref={`${sprite}#sort-down`} />
-            </svg>
-          </button>
-        </div>
+      {posts.slice(0, visible).map(post => (
+        <div class='posts__grid'>
+          <div class='posts__criteria'>
+            <button onClick={() => addLike(post._id)} type='button'>
+              <svg>
+                <use xlinkHref={`${sprite}#caret-arrow-up`} />
+              </svg>
+            </button>
+            <span class='posts__criteria--num'>{post.likes.length}</span>
+            <button onClick={() => removeLike(post._id)} type='button'>
+              <svg>
+                <use xlinkHref={`${sprite}#sort-down`} />
+              </svg>
+            </button>
+          </div>
 
-        <div class='posts__info'>
-          <Link to={`/profiles/${user}`}>{name}</Link> 發表於{' '}
-          <Moment format='YYYY/MM/DD'>{date}</Moment>
-        </div>
-        <div class='posts__important'>
-          <div class='posts__important--category'>
-            [{category}] <Link to={`/posts/${_id}`}> {title}</Link>
+          <div class='posts__info'>
+            <Link to={`/profiles/${post.user}`}>{post.name}</Link> 發表於{' '}
+            <Moment format='YYYY/MM/DD'>{post.date}</Moment>
+          </div>
+          <div class='posts__important'>
+            <div class='posts__important--category'>
+              [{post.category}]{' '}
+              <Link to={`/posts/${post._id}`}> {post.title}</Link>
+            </div>
+          </div>
+
+          <div class='posts__comment'>
+            <div class='posts__comment--icon'>
+              <svg>
+                <use xlinkHref={`${sprite}#chat`} />
+              </svg>
+            </div>
+            <Link to={`/posts/${post._id}`}>
+              <div class='posts__comment--num'>
+                {post.comments.length} 則評論
+              </div>
+            </Link>
           </div>
         </div>
+      ))}
 
-        <div class='posts__comment'>
-          <div class='posts__comment--icon'>
-            <svg>
-              <use xlinkHref={`${sprite}#chat`} />
-            </svg>
-          </div>
-          <Link to={`/posts/${_id}`}>
-            <div class='posts__comment--num'>{comments.length} 則評論</div>
-          </Link>
-        </div>
-      </div>
+      {visible < posts.length && (
+        <button onClick={loadMore} type='button' className='btn'>
+          Load more
+        </button>
+      )}
     </Fragment>
   );
 };

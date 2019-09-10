@@ -1,11 +1,15 @@
 const Post = require('../model/Post');
 const Profile = require('../model/Profile');
 const User = require('../model/User');
-
+const { validationResult } = require('express-validator');
 // @route    POST /
 // @desc     Create a post
 // @access   Private
 exports.createPost = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   try {
     const userId = req.user.id;
     const user = await User.findById(userId).select('-password');
@@ -214,6 +218,10 @@ exports.putUnLike = async (req, res, next) => {
 // @access   Private
 
 exports.postComment = async (req, res, next) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   try {
     const userId = req.user.id;
     const postId = req.params.id;

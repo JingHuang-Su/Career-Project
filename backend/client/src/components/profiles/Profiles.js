@@ -16,9 +16,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       <section class='profiles'>
         <div class='profiles__boxes'>
           {profiles.length > 0 ? (
-            profiles.map(profile => (
-              <ProfileCard key={profile._id} profile={profile} />
-            ))
+            <ProfileCard profiles={profiles} vis={20} />
           ) : (
             <h4>Noooooooooooooooo Profile found!!!!!!!</h4>
           )}

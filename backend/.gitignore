@@ -10,6 +10,7 @@
 *~
 *.sass-cache
 node_modules/
+config/production.json
 .tmp/
 
 # OS or Editor folders

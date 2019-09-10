@@ -215,3 +215,16 @@
     }
   }
 }
+
+.alert {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  &-danger {
+    color: #eb2f64;
+  }
+  &-success {
+    color: $color-primary;
+  }
+}
