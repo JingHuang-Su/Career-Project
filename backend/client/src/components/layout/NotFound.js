@@ -7,7 +7,7 @@ const NotFound = () => {
       <section className='login'>
         <div className='login_left'>
           <h1>
-            <strong>找不到此一頁面</strong>
+            <strong>404 找不到此一頁面</strong>
           </h1>
         </div>
         <div className='login_right'>

@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const path = require('path');
 
 //import router from router file
 const authRouter = require('./router/api/auth');

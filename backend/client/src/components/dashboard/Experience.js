@@ -24,7 +24,7 @@ const Experience = ({ authId, profileUserId, experience, deleteSomething }) => {
         <div className='profile__box--major'>{` ${exp.location}`}</div>
 
         <div className='profile__box--description'>
-          <span>description:</span> {exp.description}
+          <span>經歷描述:</span> {exp.description}
         </div>
 
         {profileUserId === authId && (

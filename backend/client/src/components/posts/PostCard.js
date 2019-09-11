@@ -20,14 +20,14 @@ const PostCard = ({ addLike, removeLike, auth, vis, posts }) => {
   return (
     <Fragment>
       {posts.slice(0, visible).map(post => (
-        <div class='posts__grid'>
-          <div class='posts__criteria'>
+        <div className='posts__grid'>
+          <div className='posts__criteria'>
             <button onClick={() => addLike(post._id)} type='button'>
               <svg>
                 <use xlinkHref={`${sprite}#caret-arrow-up`} />
               </svg>
             </button>
-            <span class='posts__criteria--num'>{post.likes.length}</span>
+            <span className='posts__criteria--num'>{post.likes.length}</span>
             <button onClick={() => removeLike(post._id)} type='button'>
               <svg>
                 <use xlinkHref={`${sprite}#sort-down`} />
@@ -35,25 +35,25 @@ const PostCard = ({ addLike, removeLike, auth, vis, posts }) => {
             </button>
           </div>
 
-          <div class='posts__info'>
+          <div className='posts__info'>
             <Link to={`/profiles/${post.user}`}>{post.name}</Link> 發表於{' '}
             <Moment format='YYYY/MM/DD'>{post.date}</Moment>
           </div>
-          <div class='posts__important'>
-            <div class='posts__important--category'>
+          <div className='posts__important'>
+            <div className='posts__important--category'>
               [{post.category}]{' '}
               <Link to={`/posts/${post._id}`}> {post.title}</Link>
             </div>
           </div>
 
-          <div class='posts__comment'>
-            <div class='posts__comment--icon'>
+          <div className='posts__comment'>
+            <div className='posts__comment--icon'>
               <svg>
                 <use xlinkHref={`${sprite}#chat`} />
               </svg>
             </div>
             <Link to={`/posts/${post._id}`}>
-              <div class='posts__comment--num'>
+              <div className='posts__comment--num'>
                 {post.comments.length} 則評論
               </div>
             </Link>

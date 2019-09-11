@@ -10,6 +10,7 @@
       fill: $color-black;
     }
   }
+
   ul {
     li {
       padding: 1rem;
@@ -25,10 +26,13 @@
 
 .copyright {
   font-size: 1.4rem;
-  color: $color-white;
-  margin-top: 6rem;
-  margin-right: auto;
-  margin-left: auto;
+  color: $color-secondary-light;
+  margin-top: 4rem;
   text-align: center;
-  width: 70%;
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+  }
 }

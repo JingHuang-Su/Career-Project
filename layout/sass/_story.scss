@@ -8,11 +8,20 @@
   justify-items: center;
   align-items: center;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__top--img {
     grid-column: 1/2;
     grid-row: 1/2;
     position: relative;
     margin-left: 4rem;
+    @media only screen and (max-width: $bp-medium) {
+      margin-right: 4rem;
+      margin-left: 4rem;
+    }
     img {
       clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
 
@@ -38,6 +47,10 @@
     grid-column: 2 / 3;
     grid-row: 2/3;
     margin-right: 4rem;
+    @media only screen and (max-width: $bp-medium) {
+      margin-right: 4rem;
+      margin-left: 4rem;
+    }
     position: relative;
     img {
       clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);

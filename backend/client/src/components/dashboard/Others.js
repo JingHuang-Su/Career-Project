@@ -21,7 +21,7 @@ const Others = ({ authId, profileUserId, other, deleteSomething }) => {
         </div>
 
         <div className='profile__box--description'>
-          <span>description:</span> {o.description}
+          <span>經歷描述:</span> {o.description}
         </div>
 
         {profileUserId === authId && (

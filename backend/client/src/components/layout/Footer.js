@@ -26,8 +26,18 @@ const Footer = () => {
     //       </svg>
     //     </li>
     //   </ul> */}
-      <p class='copyright '>Version 1.0</p>
-      <p class='copyright '>&copy; Copyright 2019 by JingHuang-Su.</p>
+
+      <p class='copyright'>
+        <a
+          href='https://github.com/JingHuang-Su/Career-Project'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Version 1.0
+        </a>{' '}
+        &copy; Copyright 2019 by{' '}
+        <a href='https://github.com/JingHuang-Su'>JingHuang-Su</a>.
+      </p>
     </footer>
   );
 };

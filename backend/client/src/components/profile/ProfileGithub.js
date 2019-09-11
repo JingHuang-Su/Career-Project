@@ -12,12 +12,12 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <div class='profile__github'>
-        <div class='profile__title'>Github Repo</div>
+      <div className='profile__github'>
+        <div className='profile__title'>Github Repo</div>
 
         {repos.map(repo => (
-          <div class='profile__box'>
-            <div class='profile__box--reponame'>
+          <div className='profile__box'>
+            <div className='profile__box--reponame'>
               <a
                 href={`https://github.com/${repo.full_name}`}
                 target='_blank'
@@ -26,14 +26,14 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 {repo.name}
               </a>
             </div>
-            <div class='profile__box--repoinfo'>
-              <div class='profile__box--repoinfo-star'>
+            <div className='profile__box--repoinfo'>
+              <div className='profile__box--repoinfo-star'>
                 Star: <span>{repo.stargazers_count}</span>
               </div>
-              <div class='profile__box--repoinfo-fork'>
+              <div className='profile__box--repoinfo-fork'>
                 Fork: <span>{repo.forks_count}</span>
               </div>
-              <div class='profile__box--repoinfo-watch'>
+              <div className='profile__box--repoinfo-watch'>
                 Watch: <span>{repo.watchers_count}</span>
               </div>
             </div>

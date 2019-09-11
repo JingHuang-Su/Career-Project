@@ -40,7 +40,7 @@ const PostForm = ({ addPost, history }) => {
               name='category'
             >
               <option disabled selected value=''>
-                * 選擇您的職稱
+                * 選擇類別
               </option>
               <option value='心得'>心得</option>
               <option value='請益'>請益 </option>

@@ -24,9 +24,9 @@ const Posts = ({ getPosts, posts: { posts, loading }, auth }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <section class='category mt-lg'>
+      <section className='category mt-lg'>
         {auth.isAuth && (
-          <div class='category__right'>
+          <div className='category__right'>
             <span>新增文章</span>
             <Link to='/post-form'>
               <svg>
@@ -36,37 +36,41 @@ const Posts = ({ getPosts, posts: { posts, loading }, auth }) => {
           </div>
         )}
 
-        <div class='button__list category__left'>
-          <button onClick={e => onClick(e)} value='' class='btn__all'>
+        <div className='button__list category__left'>
+          <button onClick={e => onClick(e)} value='' className='btn__all'>
             所有文章
           </button>
-          <button onClick={e => onClick(e)} value='exp' class='btn__experience'>
+          <button
+            onClick={e => onClick(e)}
+            value='exp'
+            className='btn__experience'
+          >
             心得
           </button>
           <button
             onClick={e => onClick(e)}
             value='consult'
-            class='btn__counsel'
+            className='btn__counsel'
           >
             請益
           </button>
-          <button onClick={e => onClick(e)} value='talk' class='btn__talk'>
+          <button onClick={e => onClick(e)} value='talk' className='btn__talk'>
             閒聊
           </button>
-          <button onClick={e => onClick(e)} value='news' class='btn__news'>
+          <button onClick={e => onClick(e)} value='news' className='btn__news'>
             新聞
           </button>
           <button
             onClick={e => onClick(e)}
             value='question'
-            class='btn__question'
+            className='btn__question'
           >
             問題
           </button>
         </div>
       </section>
 
-      <section class='posts'>
+      <section className='posts'>
         <PostCard posts={posts} vis={4} />
       </section>
     </Fragment>

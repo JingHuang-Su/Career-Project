@@ -200,6 +200,9 @@ body {
     color: #fff;
     font-size: 3.5rem;
     letter-spacing: 2px; }
+    @media only screen and (max-width: 50em) {
+      .home__title--main {
+        font-size: 2.5rem; } }
   .home__title--sub {
     color: #fff;
     font-size: 1.75rem;
@@ -241,7 +244,7 @@ body {
       letter-spacing: 1px; }
       @media only screen and (max-width: 50em) {
         .feature__box h3 {
-          font-size: 3rem; } }
+          font-size: 2rem; } }
     .feature__box p {
       color: #3cbeff;
       font-family: Noto Serif TC, serif;
@@ -250,7 +253,7 @@ body {
       letter-spacing: 1px; }
       @media only screen and (max-width: 50em) {
         .feature__box p {
-          font-size: 2rem; } }
+          font-size: 1.3rem; } }
   .feature__svg {
     background-color: #c0d4ff;
     height: 15rem;
@@ -261,6 +264,10 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0.5rem 0.5rem rgba(28, 81, 255, 0.2); }
+    @media only screen and (max-width: 50em) {
+      .feature__svg {
+        height: 10rem;
+        width: 10rem; } }
     .feature__svg svg {
       fill: #1c51ff;
       width: 50%;
@@ -274,11 +281,19 @@ body {
   grid-template-rows: repeat(2, max-content);
   justify-items: center;
   align-items: center; }
+  @media only screen and (max-width: 50em) {
+    .story {
+      display: flex;
+      flex-direction: column; } }
   .story__top--img {
     grid-column: 1/2;
     grid-row: 1/2;
     position: relative;
     margin-left: 4rem; }
+    @media only screen and (max-width: 50em) {
+      .story__top--img {
+        margin-right: 4rem;
+        margin-left: 4rem; } }
     .story__top--img img {
       clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
       width: 100%;
@@ -311,6 +326,10 @@ body {
     grid-row: 2/3;
     margin-right: 4rem;
     position: relative; }
+    @media only screen and (max-width: 50em) {
+      .story__down--img {
+        margin-right: 4rem;
+        margin-left: 4rem; } }
     .story__down--img img {
       clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
       width: 100%;
@@ -421,12 +440,13 @@ body {
 
 .copyright {
   font-size: 1.4rem;
-  color: #fff;
-  margin-top: 6rem;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  width: 70%; }
+  color: #eff5ff;
+  margin-top: 4rem;
+  text-align: center; }
+  .copyright a {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer; }
 
 .login {
   grid-area: 2 / content-start/3/content-end;

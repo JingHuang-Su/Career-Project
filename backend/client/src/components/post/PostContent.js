@@ -14,30 +14,30 @@ const PostContent = ({
 }) => {
   return (
     <Fragment>
-      <div class='posts__info mb-sm'>
-        <Link to='/profile'>{name}</Link> 發表於{' '}
+      <div className='posts__info mb-sm'>
+        <Link to={`/profiles/${user._id}`}>{name}</Link> 發表於{' '}
         <Moment format='YYYY/MM/DD'>{date}</Moment>
       </div>
-      <div class='posts__important mb-sm'>
-        <div class='posts__important--category'>
+      <div className='posts__important mb-sm'>
+        <div className='posts__important--category'>
           [{category}] <Link to='/post'> {title}</Link>
         </div>
       </div>
-      <div class='post__paragraph'>
+      <div className='post__paragraph'>
         <p>{text}</p>
       </div>
 
-      <div class='posts__comment mt-sm mb-sm'>
-        <div class='posts__comment--icon'>
+      <div className='posts__comment mt-sm mb-sm'>
+        <div className='posts__comment--icon'>
           <svg>
             <use xlinkHref={`${sprite}#chat`} />
           </svg>
         </div>
         <Link to='/post'>
-          <div class='posts__comment--num'>{comments.length} 則評論</div>
+          <div className='posts__comment--num'>{comments.length} 則評論</div>
         </Link>
         <button
-          class='posts__comment--icon'
+          className='posts__comment--icon'
           onClick={() => addLike(_id, true)}
           type='button'
         >
@@ -45,9 +45,9 @@ const PostContent = ({
             <use xlinkHref={`${sprite}#caret-arrow-up`} />
           </svg>
         </button>
-        <span class='posts__criteria--num'>{likes.length}</span>
+        <span className='posts__criteria--num'>{likes.length}</span>
         <button
-          class='posts__comment--icon'
+          className='posts__comment--icon'
           onClick={() => removeLike(_id, true)}
           type='button'
         >

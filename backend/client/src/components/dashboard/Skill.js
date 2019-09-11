@@ -4,14 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteSomething, addCer } from '../../actions';
 
-const Skill = ({
-  authId,
-  profileUserId,
-  skill,
-  deleteSomething,
-  addCer,
-  skills
-}) => {
+const Skill = ({ authId, profileUserId, skill, deleteSomething, addCer }) => {
   console.log(skill);
   const skillsDomain = skill
     .filter(s => s.category === '產業知識')
@@ -133,7 +126,7 @@ const Skill = ({
     ));
 
   const skillsOther = skill
-    .filter(s => s.category === '其他技能')
+    .filter(s => s.category === '其他')
     .map(s => (
       <Fragment>
         <div className='profile__skill'>

@@ -24,7 +24,7 @@ const Education = ({ authId, profileUserId, education, deleteSomething }) => {
           {edu.degree},{` ${edu.major}`}
         </div>
         <div className='profile__box--description'>
-          <span>description:</span> {edu.description}
+          <span>經歷描述:</span> {edu.description}
         </div>
 
         {profileUserId === authId && (

@@ -9,22 +9,23 @@ const CommentCard = ({
   auth
 }) => {
   return (
-    <div class='post__content'>
-      <figure class='post__content--shape'>
+    <div className='post__content'>
+      <figure className='post__content--shape'>
         <img
           src={avatar}
           alt={`${name}'s avatar`}
-          class='post__content--shape--img'
+          className='post__content--shape--img'
         />
-        <figcaption class='post__content--shape--caption'>
-          <Link to={`/profile/${user}`}>{name}</Link>
+        <figcaption className='post__content--shape--caption'>
+          <Link to={`/profiles/${user}`}>{name}</Link>
         </figcaption>
       </figure>
-      <div class='post__content--text'>
-        <h3 class='post__content--text--heading'>
-          {name} 評論於 <Moment format='YYYY/MM/DD'>{date}</Moment>
+      <div className='post__content--text'>
+        <h3 className='post__content--text--heading'>
+          <Link to={`/profiles/${user}`}>{name}</Link> 評論於{' '}
+          <Moment format='YYYY/MM/DD'>{date}</Moment>
         </h3>
-        <p class='post__content--text--paragraph'>{text}</p>
+        <p className='post__content--text--paragraph'>{text}</p>
       </div>
     </div>
   );

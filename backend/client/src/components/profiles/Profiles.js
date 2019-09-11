@@ -13,8 +13,8 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <section class='profiles'>
-        <div class='profiles__boxes'>
+      <section className='profiles'>
+        <div className='profiles__boxes'>
           {profiles.length > 0 ? (
             <ProfileCard profiles={profiles} vis={20} />
           ) : (

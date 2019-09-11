@@ -13,18 +13,18 @@ const ProfileCard = ({ profiles, vis }) => {
   return (
     <Fragment>
       {profiles.slice(0, visible).map(profile => (
-        <div class='profiles__box'>
-          <div class='profiles__box--background'></div>
-          <div class='profiles__box--img'>
+        <div className='profiles__box'>
+          <div className='profiles__box--background'></div>
+          <div className='profiles__box--img'>
             <img src={profile.user.avatar} alt={profile.user.name} />
           </div>
-          <div class='profiles__box--info'>
-            <div class='profiles__box--info--name'>{profile.user.name}</div>
-            <div class='profiles__box--info--workat'>
+          <div className='profiles__box--info'>
+            <div className='profiles__box--info--name'>{profile.user.name}</div>
+            <div className='profiles__box--info--workat'>
               {profile.status} at {profile.company}
             </div>
           </div>
-          <div class='profiles__box--check'>
+          <div className='profiles__box--check'>
             <Link to={`/profiles/${profile.user._id}`}>深入了解 </Link>
           </div>
         </div>

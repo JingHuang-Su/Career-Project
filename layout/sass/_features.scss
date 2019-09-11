@@ -35,7 +35,7 @@
       font-size: 2rem;
       letter-spacing: 1px;
       @media only screen and (max-width: $bp-medium) {
-        font-size: 3rem;
+        font-size: 2rem;
       }
     }
 
@@ -46,7 +46,7 @@
       font-size: 1.5rem;
       letter-spacing: 1px;
       @media only screen and (max-width: $bp-medium) {
-        font-size: 2rem;
+        font-size: 1.3rem;
       }
     }
   }
@@ -55,12 +55,17 @@
     background-color: $color-grey-light-3;
     height: 15rem;
     width: 15rem;
+
     margin: 0.5rem;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0.5rem 0.5rem rgba($color-grey-light-4, 0.2);
+    @media only screen and (max-width: $bp-medium) {
+      height: 10rem;
+      width: 10rem;
+    }
     svg {
       fill: $color-grey-light-4;
       width: 50%;

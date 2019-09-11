@@ -21,10 +21,10 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <div class='dashboard'>
-        <div class='dashboard__header'>
-          <h1 class='dashboard__header--title'>Dashboard</h1>
-          <p class='dashboard__header--sayhi'>
+      <div className='dashboard'>
+        <div className='dashboard__header'>
+          <h1 className='dashboard__header--title'>Dashboard</h1>
+          <p className='dashboard__header--sayhi'>
             歡迎 {profile !== null && profile.user.name} !
           </p>
         </div>
@@ -40,7 +40,7 @@ const Dashboard = ({
           </Fragment>
         ) : (
           <Fragment>
-            <p class='dashboard__header--title'>
+            <p className='dashboard__header--title'>
               親愛的用戶您好，您還未建立任何資料，加緊腳步建立資料吧!!
             </p>
             <Link to='/create-profile' className='dashboard__buttons--button'>
