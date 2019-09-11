@@ -1,4 +1,4 @@
-# Career Project v1.1
+# Career Project v1.0
 
 ##### ReactJS with Redux + ExpressJS Project
 
@@ -6,7 +6,7 @@
 
 ## Features of this project (Quick overview)
 
-- The purpose of building this project is provide a platform for the developer who can easliy asks question, shares their knowledge, expands their network.
+- The purpose of building this project provides a platform for the developer who can easliy asks question, shares their knowledge, expands their network.
 - Lets user **register** and **login**.
 - The user who using this website can posts article and updates their profile.
 - The user can also **like/dislike** post, **endorse a skill from someone's profile**
@@ -14,16 +14,17 @@
 
 ##### Notes
 
-- This project layout almost built by the Grid system of CSS.
-- Use the React Hook (useState, useEffect) instead of the React Component (componentDidMount, componentDidUpdate ...)
-- MVC pattern
+- This project layout almost built by the Grid system in CSS.
+- Responsive Web Design (RWD).
+- Use the React Hook (useState, useEffect) instead of the React Component (componentDidMount, componentDidUpdate ...).
+- MVC pattern.
 
 ### Images
 
 Home Page:
 ![](https://i.imgur.com/0HCkYzU.png)
 
-> the home page for this project
+> the home page for this project.
 
 ---
 
@@ -40,7 +41,7 @@ Home Page:
 
 ### Author
 
-JingHuang-Su, &copy; All copyright saved by JingHuang-Su.
+JingHuang-Su, &copy; All rights reserved.
 
 Thank you for taking the time to read.
 
