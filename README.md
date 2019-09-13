@@ -6,11 +6,11 @@
 
 ## Features of this project (Quick overview)
 
-- The purpose of building this project provides a platform for the developer who can easliy asks question, shares their knowledge, expands their network.
-- Lets user **register** and **login**.
+- The purpose of building this project is providing a platform for the developer who can easliy asks question, shares their knowledge, expands their network.
+- Let users **register** and **login**.
 - The user who using this website can posts article and updates their profile.
 - The user can also **like/dislike** post, **endorse a skill from someone's profile**
-- Other features like add comment, delete the content of user's profile, load more feature and so on...
+- Other features such as add comment, delete the content of user's profile, load more feature and so on...
 
 ##### Notes
 
