@@ -8,9 +8,7 @@ import { addLike, removeLike } from '../../actions';
 const PostContent = ({
   addLike,
   removeLike,
-  auth,
   post: { _id, title, name, user, date, likes, comments, category, text }
-  // ,showActions
 }) => {
   return (
     <Fragment>
@@ -20,7 +18,7 @@ const PostContent = ({
       </div>
       <div className='posts__important mb-sm'>
         <div className='posts__important--category'>
-          [{category}] <Link to='/post'> {title}</Link>
+          [{category}] {title}
         </div>
       </div>
       <div className='post__paragraph'>
@@ -33,9 +31,7 @@ const PostContent = ({
             <use xlinkHref={`${sprite}#chat`} />
           </svg>
         </div>
-        <Link to='/post'>
-          <div className='posts__comment--num'>{comments.length} 則評論</div>
-        </Link>
+        <div className='posts__comment--num'>{comments.length} 則評論</div>
         <button
           className='posts__comment--icon'
           onClick={() => addLike(_id, true)}
@@ -59,8 +55,6 @@ const PostContent = ({
     </Fragment>
   );
 };
-
-//TODO:add delete post
 
 const mapStateToProps = state => ({
   auth: state.auth

@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { addComment } from '../../actions';
+import { Link } from 'react-router-dom';
 
 const Comment = ({ postId, addComment }) => {
   const [formData, setFormData] = useState({
@@ -43,6 +44,9 @@ const Comment = ({ postId, addComment }) => {
           <button type='submit' className='btn btn__login'>
             新增 &rarr;
           </button>
+          <Link to='/posts' className='btn btn__login'>
+            返回 &larr;
+          </Link>
         </div>
       </form>
     </Fragment>

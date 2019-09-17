@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 
-const CommentCard = ({
-  postId,
-  comment: { _id, text, name, avatar, user, date },
-  auth
-}) => {
+const CommentCard = ({ comment: { _id, text, name, avatar, user, date } }) => {
   return (
     <div className='post__content'>
       <figure className='post__content--shape'>
@@ -38,4 +34,3 @@ export default connect(
   mapStateToProps,
   null
 )(CommentCard);
-//TODO: maybe add delete comment feature ...
