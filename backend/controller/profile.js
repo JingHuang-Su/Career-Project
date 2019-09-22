@@ -461,6 +461,40 @@ exports.rmCerbyOtherUser = async (req, res, next) => {
   }
 };
 
+// @route    PUT /profile/user_id/friendrequest
+// @desc     send friend request
+// @access   Private
+
+exports.sendFriendRequest = async (req, res, next) => {
+  try {
+    // console.log(req.params.user_id);
+    // console.log(req.user.id);
+    const userId = req.params.user_id;
+    const sender = req.user.id;
+
+    //get receiver info
+    const user = await User.findById(userId);
+
+    //get sender(requester) info
+    const senderData = await User.findById(sender).select(['name', 'avatar']);
+
+    // put sender(requester) info on receiver pendingfriend collection
+    user.pendingfriends.unshift({
+      pendingData: {
+        id: sender,
+        name: senderData.name,
+        avatar: senderData.avatar
+      }
+    });
+
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ msg: 'Server error' });
+  }
+};
+
 // TODO:change sorting algorithm to insertion sort, that is faster than other sorting algorithm in the world,
 // espically, the array is the almost sorted and size is small. so that why i decided use
 // insertion sort for sort this.

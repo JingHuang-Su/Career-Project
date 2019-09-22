@@ -1,6 +1,6 @@
 {
-  "mongoURI": "",
+  "mongoURI": "mongodb+srv://Jing_Career:Jing_Career@cluster0-vxlid.gcp.mongodb.net/Career",
   "jwtSecret": "thisveryveryimportantsecret",
-  "githubClientId": "",
-  "githubSecret": ""
+  "githubClientId": "bb70d6d3ca710a982486",
+  "githubSecret": "4c0cb01116e7f3de40b90d2414e6b46e31a2d608"
 }

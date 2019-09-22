@@ -188,4 +188,14 @@ router.delete(
   profileController.rmCerbyOtherUser
 );
 
+// @route    PUT /profile/:user_Id/friendrequest
+// @desc     send friend request
+// @access   Private
+
+router.put(
+  '/:user_id/friendrequest',
+  auth,
+  profileController.sendFriendRequest
+);
+
 module.exports = router;

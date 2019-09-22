@@ -108,3 +108,79 @@ exports.postSignup = async (req, res, next) => {
     res.status(500).send('Server Error');
   }
 };
+
+// @route    GET /auth/pending
+// @desc     get all of pending friend from user
+// @access   Private
+
+exports.getPendingFriends = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const users = await User.findById(userId).select('pendingfriends');
+
+    res.json(users);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+// @route    PUT /auth/pending/accept/:pending_Id
+// @desc     accept user who wants to be a friend with you
+// @access   Private
+
+exports.acceptPendingFriends = async (req, res, next) => {
+  try {
+    const newfriendsPendingId = req.params.pending_Id;
+    const userId = req.user.id;
+    const user = await User.findById(userId).select([
+      'friends',
+      'pendingfriends'
+    ]);
+
+    const prepareTransToFriend = user.pendingfriends.findIndex(
+      u => u._id.toString() === newfriendsPendingId.toString()
+    );
+
+    const temp = user.pendingfriends.splice(prepareTransToFriend, 1);
+
+    user.friends.unshift({
+      friendData: {
+        id: temp[0].pendingData.id,
+        name: temp[0].pendingData.name,
+        avatar: temp[0].pendingData.avatar
+      }
+    });
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Server Error');
+  }
+};
+// @route    DELETE /auth/pending/reject/:pending_id
+// @desc     reject user who wants to be a friend with you
+// @access   Private
+
+exports.rejectPendingFriends = async (req, res, next) => {
+  try {
+    const newfriendsPendingId = req.params.pending_Id;
+    const userId = req.user.id;
+    const user = await User.findById(userId).select([
+      'friends',
+      'pendingfriends'
+    ]);
+
+    const prepareTransToFriend = user.pendingfriends.findIndex(
+      u => u._id.toString() === newfriendsPendingId.toString()
+    );
+
+    const remove = user.pendingfriends.splice(prepareTransToFriend, 1);
+
+    await user.save();
+    res.json(remove);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Server Error');
+  }
+};

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const UserSchema = new Schema({
   name: {
@@ -21,7 +22,53 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  friends: [
+    {
+      friendData: {
+        id: {
+          type: ObjectId,
+          required: true,
+          ref: 'user'
+        },
+        name: {
+          type: String,
+          required: true
+        },
+        avatar: {
+          type: String,
+          required: true
+        }
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ],
+  pendingfriends: [
+    {
+      pendingData: {
+        id: {
+          type: ObjectId,
+          required: true,
+          ref: 'user'
+        },
+        name: {
+          type: String,
+          required: true
+        },
+        avatar: {
+          type: String,
+          required: true
+        }
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ]
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
