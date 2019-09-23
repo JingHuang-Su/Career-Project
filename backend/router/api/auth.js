@@ -48,7 +48,13 @@ router.post(
 // @desc     get all of friends from user
 // @access   Private
 
-// router.get('/friend', auth, authController.getFriends);
+router.get('/friends', auth, authController.getFriends);
+
+// @route    DELETE /auth/friend
+// @desc     get all of friends from user
+// @access   Private
+
+router.delete('/friends/:friend_id', auth, authController.delFriend);
 
 // @route    GET /auth/pending
 // @desc     get all of pending friend from user

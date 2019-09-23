@@ -109,6 +109,44 @@ exports.postSignup = async (req, res, next) => {
   }
 };
 
+// @route    GET /auth/friend
+// @desc     get all of friends from user
+// @access   Private
+
+exports.getFriends = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const allfriends = await User.findById(userId).select('friends');
+    res.json(allfriends);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+// @route    DELETE /auth/friend/:friend_id
+// @desc     DELETE one of your friends
+// @access   Private
+
+exports.delFriend = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const delId = req.params.friend_id;
+
+    const allfriends = await User.findById(userId).select('friends');
+
+    const removeIndex = allfriends.friends.findIndex(
+      u => u.friendData.id.toString() === delId.toString()
+    );
+    allfriends.friends.splice(removeIndex, 1);
+    await allfriends.save();
+    res.json(allfriends);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Server Error');
+  }
+};
+
 // @route    GET /auth/pending
 // @desc     get all of pending friend from user
 // @access   Private

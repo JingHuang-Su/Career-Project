@@ -3,6 +3,8 @@
   grid-column: full-start/full-end;
   padding: 1rem;
 
+  display: flex;
+
   @media only screen and (max-width: $bp-medium) {
     padding: 0.5rem;
   }
@@ -13,7 +15,6 @@
 }
 
 .logo {
-  float: left;
   height: 4rem;
   margin-left: 1rem;
 }
@@ -22,17 +23,19 @@
 // this feature also can use flexbox and grid,
 // but just want to try some float property also can do the same thing
 .navigation {
+  &__link {
+    margin-right: auto;
+  }
   &__nav {
-    float: right;
     margin-top: 1rem;
   }
 
   &__list {
-    display: inline-block;
+    display: flex;
+
     list-style: none;
   }
   &__item {
-    float: left;
     padding: 0 2rem;
 
     @media only screen and (max-width: $bp-medium) {
@@ -49,6 +52,61 @@
 
     &:hover {
       transform: scale(1.1);
+    }
+  }
+}
+
+.user__nav {
+  &--user {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+    }
+  }
+  &--user:hover &--profile {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s ease-in-out;
+  }
+  &--profile {
+    background-color: $color-black;
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    min-width: 16rem;
+    z-index: 819;
+    opacity: 0;
+    visibility: hidden;
+    max-height: none;
+
+    display: flex;
+    flex-direction: column;
+
+    &-list {
+      font-size: 1.4rem;
+      list-style-type: none;
+    }
+
+    &-item {
+      padding: 0.8rem;
+      color: $color-white;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem;
+        display: block;
+        fill: $color-white;
+      }
+    }
+    &-link {
+      display: flex;
+      align-items: center;
     }
   }
 }
