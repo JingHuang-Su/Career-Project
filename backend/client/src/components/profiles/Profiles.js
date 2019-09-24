@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
+import openSocket from 'socket.io-client';
+
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileCard from './ProfileCard';
@@ -7,6 +9,12 @@ import { getProfiles } from '../../actions';
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
+    const socket = openSocket('http://localhost:5000');
+    socket.on('profile', data => {
+      if (data.action === 'create') {
+        getProfiles();
+      }
+    });
   }, [getProfiles]);
 
   return loading ? (

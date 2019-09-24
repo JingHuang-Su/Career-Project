@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import openSocket from 'socket.io-client';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
@@ -13,7 +12,6 @@ const Posts = ({ getPosts, posts: { posts, loading }, auth }) => {
 
   useEffect(() => {
     getPosts(category);
-    openSocket('http://localhost:5000');
   }, [getPosts, category]);
 
   const onClick = e => {
@@ -71,7 +69,7 @@ const Posts = ({ getPosts, posts: { posts, loading }, auth }) => {
       </section>
 
       <section className='posts'>
-        <PostCard posts={posts} vis={4} />
+        <PostCard key={posts} posts={posts} />
       </section>
     </Fragment>
   );

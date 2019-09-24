@@ -29,6 +29,11 @@ connectDB();
 // }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Jing, Server started on port ${PORT}`);
+});
+
+const io = require('./socket').init(server);
+io.on('connection', socket => {
+  console.log('Client Connected!!');
 });

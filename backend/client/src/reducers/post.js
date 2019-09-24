@@ -2,6 +2,7 @@ import * as GET from '../actions/type';
 
 const initialState = {
   posts: [],
+  otherpost: [],
   post: null,
   loading: true,
   error: {}

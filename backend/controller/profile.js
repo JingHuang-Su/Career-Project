@@ -3,6 +3,8 @@ const request = require('request');
 const Profile = require('../model/Profile');
 const User = require('../model/User');
 const { validationResult } = require('express-validator');
+const io = require('../socket');
+
 
 // @route    GET profile/me
 // @desc     Get current users profile
@@ -69,6 +71,8 @@ exports.postProfile = async (req, res, next) => {
       { $set: profileCollection },
       { new: true, upsert: true }
     );
+    io.getIO().emit('profile', { action: 'create', profile: profile });
+
     console.log(profile);
     res.json(profile);
   } catch (error) {
@@ -83,6 +87,7 @@ exports.postProfile = async (req, res, next) => {
 exports.getProfiles = async (req, res, next) => {
   try {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+
     res.json(profiles);
   } catch (error) {
     console.error(error.message);

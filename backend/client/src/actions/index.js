@@ -127,22 +127,15 @@ export const addPost = (formData, history) => async dispatch => {
 export const getPosts = (category = null) => async dispatch => {
   try {
     let res;
-    if (
-      category === 'question' ||
-      category === 'exp' ||
-      category === 'consult' ||
-      category === 'talk' ||
-      category === 'news'
-    ) {
+    if (category) {
       res = await axios.get(`/post/${category}`);
     } else {
       res = await axios.get('/post');
-    }
-
-    dispatch({
-      type: GET.GET_POSTS,
-      payload: res.data
-    });
+      
+    }dispatch({
+        type: GET.GET_POSTS,
+        payload: res.data
+      });
   } catch (error) {
     dispatch({
       type: GET.POST_ERROR,

@@ -5,16 +5,14 @@ import sprite from '../img/sprite.svg';
 import { connect } from 'react-redux';
 import { addLike, removeLike } from '../../actions';
 
-const PostCard = ({ addLike, removeLike, auth, vis, posts }) => {
+const PostCard = ({ addLike, removeLike, auth, posts }) => {
   const [visibleData, setVisibleData] = useState({
     visible: 5
   });
   const { visible } = visibleData;
 
   const loadMore = () => {
-    setVisibleData(() => {
-      return { visible: vis + 4 };
-    });
+    setVisibleData({ visible: visible + 4 });
   };
 
   return (
