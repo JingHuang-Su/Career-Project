@@ -5,7 +5,6 @@ const User = require('../model/User');
 const { validationResult } = require('express-validator');
 const io = require('../socket');
 
-
 // @route    GET profile/me
 // @desc     Get current users profile
 // @access   Private
@@ -474,26 +473,38 @@ exports.sendFriendRequest = async (req, res, next) => {
   try {
     // console.log(req.params.user_id);
     // console.log(req.user.id);
-    const userId = req.params.user_id;
+    const receiver = req.params.user_id;
     const sender = req.user.id;
 
+    //get sender info
+    const senderData = await User.findById(sender);
     //get receiver info
-    const user = await User.findById(userId);
-
-    //get sender(requester) info
-    const senderData = await User.findById(sender).select(['name', 'avatar']);
+    const receiverData = await User.findById(receiver).select([
+      'name',
+      'avatar',
+      'pendingfriends'
+    ]);
+    const isdup = receiverData.pendingfriends.find(
+      pending => pending.pendingData.id.toString() === sender.toString()
+    );
+    //check duplicate
+    if (isdup) {
+      return res.status(400).json({ msg: '已送出過交友邀請' });
+    }
+    
 
     // put sender(requester) info on receiver pendingfriend collection
-    user.pendingfriends.unshift({
+    receiverData.pendingfriends.unshift({
       pendingData: {
-        id: sender,
+        id:sender,
         name: senderData.name,
         avatar: senderData.avatar
       }
     });
 
-    await user.save();
-    res.json(user);
+    await senderData.save();
+    await receiverData.save();
+    res.json(receiverData);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ msg: 'Server error' });

@@ -6,6 +6,7 @@ const path = require('path');
 const authRouter = require('./router/api/auth');
 const profileRouter = require('./router/api/profile');
 const postRouter = require('./router/api/posts');
+const chatRouter = require('./router/api/chat')
 
 const app = express();
 app.use(express.json({ extended: false }));
@@ -16,6 +17,8 @@ app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 
 app.use('/post', postRouter);
+
+app.use('/message', chatRouter)
 //connect database
 connectDB();
 

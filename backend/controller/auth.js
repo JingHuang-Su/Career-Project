@@ -4,7 +4,7 @@ const User = require('../model/User');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { validationResult } = require('express-validator');
-const io = require('../socket');
+// const io = require('../socket');
 
 // @route    GET auth
 // @desc     Test route
@@ -198,10 +198,21 @@ exports.acceptPendingFriends = async (req, res, next) => {
     const newfriendsPendingId = req.params.pending_Id;
     const userId = req.user.id;
     const user = await User.findById(userId).select([
+      'name',
+      'avatar',
       'friends',
       'pendingfriends'
     ]);
 
+    const sender = await User.findById(newfriendsPendingId).select('friends');
+    sender.friends.unshift({
+      friendData: {
+        id: userId,
+        name: user.name,
+        avatar: user.avatar
+      }
+    });
+    await sender.save();
     const prepareTransToFriend = user.pendingfriends.findIndex(
       u => u._id.toString() === newfriendsPendingId.toString()
     );
@@ -234,7 +245,6 @@ exports.rejectPendingFriends = async (req, res, next) => {
       'friends',
       'pendingfriends'
     ]);
-
     const prepareTransToFriend = user.pendingfriends.findIndex(
       u => u._id.toString() === newfriendsPendingId.toString()
     );
