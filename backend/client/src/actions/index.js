@@ -3,6 +3,7 @@ import * as GET from './type';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import { setHeaderConfig } from '../utils/setHeaderConfig';
+import openSocket from 'socket.io-client';
 
 export const setAlert = (msg, alertType, timeout = 3000) => dispatch => {
   const id = uuid.v4();
@@ -81,6 +82,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
 
 export const logout = () => dispatch => {
   // dispatch({ type: CLEAR_PROFILE });
+  axios.put('/auth/logout');
   dispatch({ type: GET.LOGOUT });
 };
 
@@ -131,11 +133,11 @@ export const getPosts = (category = null) => async dispatch => {
       res = await axios.get(`/post/${category}`);
     } else {
       res = await axios.get('/post');
-      
-    }dispatch({
-        type: GET.GET_POSTS,
-        payload: res.data
-      });
+    }
+    dispatch({
+      type: GET.GET_POSTS,
+      payload: res.data
+    });
   } catch (error) {
     dispatch({
       type: GET.POST_ERROR,

@@ -42,6 +42,11 @@ router.post(
   authController.postLogin
 );
 
+// // @route    PUT api/auth/logout
+// // @desc     userlogout active set to false
+// // @access   Public
+router.put('/logout', auth, authController.putLogout);
+
 //TODO: ADD Friend
 
 // @route    GET /auth/friend

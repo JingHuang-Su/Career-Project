@@ -4,6 +4,7 @@ const User = require('../model/User');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { validationResult } = require('express-validator');
+const io = require('../socket');
 
 // @route    GET auth
 // @desc     Test route
@@ -15,6 +16,24 @@ exports.getAuth = async (req, res, next) => {
     res.json(user);
   } catch (err) {
     console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+// @route    PUT api/auth/logout
+// @desc     Authenticate user & getToken
+// @access   Public
+exports.putLogout = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+    user.active = false;
+    await user.save();
+
+    //TODO: In the future, I will create a friend list that need to load all the
+    // user who's active is true. "I will need to use socket.io push newest status on the front end"
+  } catch (error) {
+    console.error(error.message);
     res.status(500).send('Server Error');
   }
 };
@@ -38,11 +57,12 @@ exports.postLogin = async (req, res, next) => {
     if (!isMatch) {
       return res.status(400).json({ errors: [{ msg: '帳密有誤' }] });
     }
+
     const payload = { user: { id: user.id } };
     jwt.sign(
       payload,
       config.get('jwtSecret'),
-      { expiresIn: 360000 },
+      { expiresIn: 60000 },
       (error, token) => {
         if (error) {
           throw error;
@@ -51,8 +71,11 @@ exports.postLogin = async (req, res, next) => {
         res.json({ token });
       }
     );
+    user.active = true;
+
+    await user.save();
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res.status(500).send('Server Error');
   }
 };
@@ -97,12 +120,15 @@ exports.postSignup = async (req, res, next) => {
     jwt.sign(
       payload,
       config.get('jwtSecret'),
-      { expiresIn: 360000 },
+      { expiresIn: 60000 },
       (err, token) => {
         if (err) throw err;
         res.json({ token });
       }
     );
+    user.active = true;
+
+    await user.save();
   } catch (error) {
     console.log(error.message);
     res.status(500).send('Server Error');
