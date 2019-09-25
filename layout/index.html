@@ -20,48 +20,83 @@
 
       <nav class="navigation__nav">
         <ul class="navigation__list">
-          <li class="navigation__item">
-            <a href="./posts.html" class="navigation__link">文章</a>
-          </li>
-          <li class="navigation__item">
-            <a href="./login.html" class="navigation__link">登入</a>
-          </li>
+            <li class="navigation__item">
+                <a href="./posts.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#connection" ></use>
+                  </svg>
+                  <!-- <span>開發者</span> -->
+                </a>
+              </li>
+            <li class="navigation__item">
+                <a href="./posts.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#article"></use>
+                  </svg>
+                  <!-- <span>文章</span> -->
+                </a>
+              </li>
+            <li class="navigation__item">
+                <a href="./login.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#notifications-bell-button"></use>
+                  </svg>
+                  <!-- <span>通知</span> -->
+                </a>
+            </li>
+            <li class="navigation__item user__nav--user">
+                <a href="./login.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#chat-1"></use>
+                  </svg>
+                  <!-- <span>聊天</span> -->
+                </a>
+                <div class="user__nav--profile">
+                  <div class="user__nav--profile-chat">
+                     <div class="user__nav--profile-who">
+                    JingHuang-Su 
+                  </div>
+                  <div class="user__nav--profile-text">
+                    &rdca; <span>Hello, How's going??</span>
+                  </div>
+                  </div>
+                  <div class="user__nav--profile-chat">
+                      <div class="user__nav--profile-who">
+                     <a>Amy Liu </a>
+                   </div>
+                   <div class="user__nav--profile-text">
+                      &rdca;<span>Yes, definitly true</span>
+                   </div>
+                   </div>
+
+                   <div class="user__nav--profile-center"><a href = "./chatroom.html">更多</a></div>
+                  
+                </div>
+            </li>
+          
+          
           <li class="navigation__item user__nav--user">
               <img src="img/story--1.jpg" alt="photo" class = "user__nav--user-photo">
-              <span class = "user__nav--user-text">JingHuang-Su</span>
+              <!-- <span class = "user__nav--user-text">JingHuang-Su</span> -->
             
             <div class="user__nav--profile">
               <ul class="user__nav--profile-list">
-                <li class="user__nav--profile-item">
-                    <a href="./dashboard.html" class="user__nav--profile-link">
-                      <svg>
-                          <use xlink:href="img/sprite.svg#profile"></use>
-                      </svg>
-                      <span>主控台</span>
-                    </a>
-                </li>
-                <li class="user__nav--profile-item">
-                    <a href="./login.html" class="user__nav--profile-link">
-                      <svg>
-                          <use xlink:href="img/sprite.svg#notifications-bell-button"></use>
-                      </svg>
-                      <span>通知</span>
-                    </a>
-                </li>
-                <li class="user__nav--profile-item">
-                    <a href="./login.html" class="user__nav--profile-link">
-                      <svg>
-                          <use xlink:href="img/sprite.svg#chat-1"></use>
-                      </svg>
-                      <span>聊天</span>
-                    </a>
-                </li>
+                
+                  <li class="user__nav--profile-item">
+                      <a href="./dashboard.html" class="user__nav--profile-link">
+                        <svg>
+                            <use xlink:href="img/sprite.svg#profile"></use>
+                        </svg>
+                        <div>主控台</div>
+                      </a>
+                  </li>
+                
                 <li class="user__nav--profile-item">
                     <a href="./login.html" class="user__nav--profile-link">
                       <svg>
                           <use xlink:href="img/sprite.svg#logout-or-send-square-with-right-arrow-interface-symbol"></use>
                       </svg>
-                      <span>登出</span>
+                      <div>登出</div>
                     </a>
                 </li>
               </ul>

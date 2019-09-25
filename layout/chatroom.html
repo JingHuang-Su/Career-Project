@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:200,300,400,500,600,700,900&display=swap&subset=chinese-traditional"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./img/logo2.png" sizes="32x32" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>SYK &mdash; 分享知識的平台</title>
+  </head>
+  <body class="container">
+    <header class="header">
+      <a href="./index.html" class="navigation__link"
+        ><img src="img/logo1.png" alt="SYK logo" class="logo"
+      /></a>
+
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+            <li class="navigation__item">
+                <a href="./posts.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#connection"></use>
+                  </svg>
+                  <span>開發者</span>
+                </a>
+              </li>
+            <li class="navigation__item">
+                <a href="./posts.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#article"></use>
+                  </svg>
+                  <span>文章</span>
+                </a>
+              </li>
+            <li class="navigation__item">
+                <a href="./login.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#notifications-bell-button"></use>
+                  </svg>
+                  <span>通知</span>
+                </a>
+            </li>
+            <li class="navigation__item user__nav--user">
+                <a href="./login.html" class="user__nav--profile-link">
+                  <svg>
+                      <use xlink:href="img/sprite.svg#chat-1"></use>
+                  </svg>
+                  <span>聊天</span>
+                </a>
+                <div class="user__nav--profile">
+                  <div class="user__nav--profile-chat">
+                     <div class="user__nav--profile-who">
+                    JingHuang-Su 
+                  </div>
+                  <div class="user__nav--profile-text">
+                    &rdca; <span>Hello, How's going??</span>
+                  </div>
+                  </div>
+                  <div class="user__nav--profile-chat">
+                      <div class="user__nav--profile-who">
+                     <a>Amy Liu </a>
+                   </div>
+                   <div class="user__nav--profile-text">
+                      &rdca;<span>Yes, definitly true</span>
+                   </div>
+                   </div>
+
+                   <div class="user__nav--profile-center"><a href = "chat.html">更多</a></div>
+                  
+                </div>
+            </li>
+          
+          
+          <li class="navigation__item user__nav--user">
+              <img src="img/story--1.jpg" alt="photo" class = "user__nav--user-photo">
+              <span class = "user__nav--user-text">JingHuang-Su</span>
+            
+            <div class="user__nav--profile">
+              <ul class="user__nav--profile-list">
+                
+                  <li class="user__nav--profile-item">
+                      <a href="./dashboard.html" class="user__nav--profile-link">
+                        <svg>
+                            <use xlink:href="img/sprite.svg#profile"></use>
+                        </svg>
+                        <div>主控台</div>
+                      </a>
+                  </li>
+                
+                <li class="user__nav--profile-item">
+                    <a href="./login.html" class="user__nav--profile-link">
+                      <svg>
+                          <use xlink:href="img/sprite.svg#logout-or-send-square-with-right-arrow-interface-symbol"></use>
+                      </svg>
+                      <div>登出</div>
+                    </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </div>
+      </nav>
+    </header>
+    <section class="chatroom">
+        <div class="sidebar">
+            <div class="sidebar__title">
+                Let's chat!!
+            </div>
+            <div class="friendlists">
+                <a href="signup.html">
+                    <div class="friendlists__box friendlists__box-active">
+                        <div class="friendlists__box--left">
+                                <img src="./img/story--1.jpg" alt="user1">
+                        </div>
+                        <div class="friendlists__box--right">
+                            <div class="friendlists__box--name">
+                            JingHuang-Su
+                            </div>
+                            <div class="friendlists__box--head">
+                                &rdca; <span>Hello, How's going??</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="signup.html">
+                    <div class="friendlists__box">
+                        <div class="friendlists__box--left">
+                            <img src="./img/story--2.jpg" alt="user1">
+                        </div>
+                        <div class="friendlists__box--right">
+                            <div class="friendlists__box--name">
+                                Amy Liu 
+                            </div>
+                            <div class="friendlists__box--head">
+                                &rdca; <span>Yes, definitely true</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        <div class="content">
+                <div class="friendlists__box content__chater">
+                        <div class="friendlists__box--left">
+                            <img src="./img/story--1.jpg" alt="user1">
+                        </div>
+                        <div class="friendlists__box--right">
+                            <div class="friendlists__box--name">
+                                JingHuang-Su
+                            </div>
+                            <div class="friendlists__box--head">
+                               active
+                            </div>
+                        </div>
+                    </div>
+            <div class="content__chat">
+
+            </div>
+            <div class="content__msg">
+                <div class="content__msg-left">
+                    <form action="#" class='type something__type'>
+                    <input
+                        type='text'
+                        placeholder='type ...'
+                        name='skill'
+                        class='type__input'
+                        autocomplete='off'
+                    />
+                </form>
+                </div>
+                <div class="content__msg-right">
+                    <button>
+                        <svg>
+                            <use xlink:href="img/sprite.svg#right-arrow"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+      <p class="copyright ">
+        &copy; Copyright 2019 by JingHuang-Su.
+      </p>
+    </footer>
+  </body>
+</html>

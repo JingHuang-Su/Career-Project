@@ -1,0 +1,127 @@
+.chatroom {
+  grid-area: 2 / full-start/3/full-end;
+  height: 90vh;
+  margin: 8rem;
+
+  display: flex;
+}
+
+.sidebar {
+  flex: 0 0 25%;
+  background-color: rgba($color-black, 0.04);
+  &__title {
+    font-size: 2rem;
+    font-family: $font-primary;
+    text-align: center;
+    padding: 1rem;
+    font-family: sans-serif;
+    @include border-bottom;
+  }
+}
+
+.friendlists {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+
+  > a {
+    text-decoration: none;
+    color: rgba($color-black, 0.8);
+  }
+
+  &__box {
+    // @include border-bottom;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    &-active {
+      border-left: 2px solid red;
+      content: '';
+      padding: 0.5rem 0.1rem;
+    }
+    &--left {
+      padding: 0 1rem;
+      img {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+      }
+    }
+
+    &--name {
+      font-size: 1.6rem;
+    }
+
+    &--head {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.content {
+  flex: 0 0 75%;
+  background-color: rgba($color-black, 0.03);
+  display: flex;
+  flex-direction: column;
+  &__chater {
+    flex: 0 0 5%;
+    align-items: flex-start;
+    padding-top: 0.4rem;
+    border-left: 1px solid rgba($color-black, 0.01);
+    @include border-bottom;
+    img {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+    }
+  }
+  &__chat {
+    flex: 0 0 80%;
+  }
+  &__msg {
+    display: flex;
+    width: 100%;
+    // margin-top: 1.5rem;
+    padding-bottom: 1.1rem;
+    flex: 0 0 15%;
+    align-items: center;
+    &-left {
+      flex: 0 0 90%;
+    }
+    &-right {
+      flex: 0 0 10%;
+    }
+    button {
+      border: 1px solid rgba($color-black, 0.05);
+      background-color: rgba($color-white, 0.5);
+      //   padding: 0rem 2rem;
+      width: 100%;
+      height: 5.7rem;
+      svg {
+        height: 2rem;
+        width: 2rem;
+        fill: rgb(207, 205, 205);
+      }
+    }
+  }
+}
+
+.type {
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
