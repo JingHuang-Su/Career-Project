@@ -53,7 +53,7 @@ router.put('/logout', auth, authController.putLogout);
 // @desc     get all of friends from user
 // @access   Private
 
-router.get('/friends', auth, authController.getFriends);
+router.get('/friends/:userId', auth, authController.getFriends);
 
 // @route    DELETE /auth/friend
 // @desc     get all of friends from user
@@ -65,7 +65,7 @@ router.delete('/friends/:friend_id', auth, authController.delFriend);
 // @desc     get all of pending friend from user
 // @access   Private
 
-router.get('/pending', auth, authController.getPendingFriends);
+router.get('/pending/:userId', auth, authController.getPendingFriends);
 
 // // @route    PUT /auth/waiting
 // // @desc     get all of friends from user

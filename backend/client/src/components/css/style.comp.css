@@ -147,7 +147,8 @@ body {
 .header {
   background-color: #101d2c;
   grid-column: full-start/full-end;
-  padding: 1rem; }
+  padding: 1rem;
+  display: flex; }
   @media only screen and (max-width: 50em) {
     .header {
       padding: 0.5rem; } }
@@ -155,32 +156,115 @@ body {
     outline: none; }
 
 .logo {
-  float: left;
   height: 4rem;
   margin-left: 1rem; }
 
+.navigation__link {
+  margin-right: auto; }
+
 .navigation__nav {
-  float: right;
   margin-top: 1rem; }
 
 .navigation__list {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   list-style: none; }
 
 .navigation__item {
-  float: left;
-  padding: 0 2rem; }
+  align-self: stretch;
+  display: flex;
+  padding: 0 1rem; }
   @media only screen and (max-width: 50em) {
     .navigation__item {
       padding: 0 1rem; } }
+  .navigation__item svg {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    display: block;
+    fill: rgba(255, 255, 255, 0.8); }
   .navigation__item a {
     font-size: 1.5rem;
     text-decoration: none;
-    color: #fff;
-    transition: all 2s;
-    outline: none; }
-  .navigation__item:hover {
-    transform: scale(1.1); }
+    transition: all 0.5s;
+    outline: none;
+    cursor: pointer; }
+    .navigation__item a > span {
+      color: #fff; }
+    .navigation__item a:hover {
+      font-weight: 700; }
+
+.user__nav--user {
+  position: relative;
+  display: flex;
+  align-items: center; }
+  .user__nav--user img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%; }
+  .user__nav--user-text {
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    color: #fff; }
+
+.user__nav--user:hover .user__nav--profile {
+  padding-top: 1.5rem;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.6s ease-in-out; }
+
+.user__nav--profile {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-top: 1.2rem solid #101d2c;
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  min-width: 20rem;
+  z-index: 819;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column; }
+  .user__nav--profile-list {
+    font-size: 1.4rem;
+    list-style-type: none; }
+  .user__nav--profile-item {
+    padding: 0.8rem; }
+    .user__nav--profile-item > span {
+      color: black; }
+    .user__nav--profile-item svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 1rem;
+      display: block;
+      fill: rgba(0, 0, 0, 0.8); }
+  .user__nav--profile-link {
+    display: flex;
+    align-items: center; }
+  .user__nav--profile-chat {
+    padding: 0.8rem;
+    padding-left: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column; }
+  .user__nav--profile-who {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  .user__nav--profile-center {
+    font-size: 1.2rem;
+    text-align: center; }
+    .user__nav--profile-center a {
+      color: rgba(0, 0, 0, 0.8); }
+  .user__nav--profile-text {
+    font-size: 1.6rem; }
+    .user__nav--profile-text span {
+      font-size: 1.1rem;
+      padding-left: 0.5rem;
+      color: rgba(0, 0, 0, 0.8); }
 
 .home {
   grid-column: full-start/full-end;
@@ -873,7 +957,20 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 2rem;
-    color: rgba(0, 0, 0, 0.84); }
+    color: rgba(0, 0, 0, 0.84);
+    position: relative; }
+    .profile__intro--addFriend {
+      position: absolute;
+      top: 10px;
+      right: 20px; }
+      .profile__intro--addFriend button {
+        color: rgba(0, 0, 0, 0.54);
+        border: none;
+        background-color: inherit;
+        font-size: 1.5rem;
+        font-weight: 600; }
+        .profile__intro--addFriend button:hover {
+          color: black; }
     .profile__intro--website a {
       text-decoration: none;
       color: rgba(0, 0, 0, 0.54);
@@ -1217,3 +1314,156 @@ body {
         .dashboard__buttons--button svg:hover {
           border: 0.2rem solid rgba(5, 130, 202, 0.7);
           border-radius: 100%; }
+
+.chatroom {
+  grid-area: 2 / full-start/3/full-end;
+  height: 90vh;
+  margin: 8rem;
+  display: flex; }
+
+.sidebar {
+  flex: 0 0 25%;
+  background-color: rgba(0, 0, 0, 0.04); }
+  .sidebar__title {
+    font-size: 2rem;
+    font-family: Noto Serif TC, serif;
+    text-align: center;
+    padding: 1rem;
+    font-family: sans-serif;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+
+.friendlists {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column; }
+  .friendlists > a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8); }
+  .friendlists__box {
+    padding-top: 2rem;
+    display: flex;
+    align-items: center; }
+    .friendlists__box-active {
+      border-left: 2px solid red;
+      content: '';
+      padding: 0.5rem 0.1rem; }
+    .friendlists__box--left {
+      padding: 0 1rem; }
+      .friendlists__box--left img {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%; }
+    .friendlists__box--name {
+      font-size: 1.6rem; }
+    .friendlists__box--head {
+      font-size: 1.1rem; }
+
+.content {
+  flex: 0 0 75%;
+  background-color: rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column; }
+  .content__chater {
+    flex: 0 0 5%;
+    align-items: flex-start;
+    padding-top: 0.4rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.01);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+    .content__chater img {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%; }
+  .content__chat {
+    flex: 0 0 80%; }
+  .content__msg {
+    display: flex;
+    width: 100%;
+    padding-bottom: 1.1rem;
+    flex: 0 0 15%;
+    align-items: center; }
+    .content__msg-left {
+      flex: 0 0 90%; }
+    .content__msg-right {
+      flex: 0 0 10%; }
+    .content__msg button {
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      height: 5.7rem; }
+      .content__msg button svg {
+        height: 2rem;
+        width: 2rem;
+        fill: #cfcdcd; }
+
+.type__input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 100%;
+  display: block;
+  transition: all 0.3s; }
+  .type__input:focus {
+    outline: none; }
+
+.friend__list {
+  grid-area: 2 / content-start/3/content-end;
+  height: 90vh;
+  margin: 7rem;
+  padding: 0 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center; }
+  .friend__list--box {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.2); }
+    .friend__list--box--avatar img {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%; }
+    .friend__list--box--name {
+      font-size: 1.6rem;
+      margin-left: 2rem;
+      margin-top: -1rem; }
+    .friend__list--box--btnlist {
+      display: flex;
+      margin-top: 1rem;
+      margin-left: 2rem; }
+      .friend__list--box--btnlist a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-family: Noto Serif TC, serif;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin-right: 1rem;
+        padding: 0.4rem;
+        font-weight: 600;
+        border-radius: 5px; }
+        @media only screen and (max-width: 50em) {
+          .friend__list--box--btnlist a {
+            font-size: 2rem; } }
+        .friend__list--box--btnlist a:hover {
+          background-color: #e2e2ec; }
+  .friend__list--title {
+    align-self: flex-start;
+    justify-content: stretch;
+    display: flex;
+    padding: 1rem 0; }
+    .friend__list--title div {
+      margin-right: 2rem; }
+      .friend__list--title div a {
+        font-size: 2rem;
+        color: rgba(0, 0, 0, 0.54);
+        border: none;
+        text-decoration: none;
+        background-color: #eff5ff;
+        cursor: pointer; }
+        .friend__list--title div a:hover {
+          color: black; }

@@ -1,7 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import sprite from '../img/sprite.svg';
+import { friendRequest, getFriends, getPendingFriends } from '../../actions';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Spinner from '../layout/Spinner';
 
 const ProfileTop = ({
+  auth,
+  receiverId,
+  getPendingFriends,
+  getFriends,
+  friendRequest,
   profile: {
     status,
     company,
@@ -9,11 +18,53 @@ const ProfileTop = ({
     website,
     social,
     user: { name, avatar }
-  }
+  },
+  friends: { friends, pending, loading }
 }) => {
-  return (
+  const onFriReq = () => {
+    friendRequest(receiverId);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getPendingFriends(receiverId);
+      await getFriends(receiverId);
+    };
+    fetchData();
+  }, [getPendingFriends, getFriends, receiverId]);
+
+  const isPending = pending.pendingfriends
+    ? pending.pendingfriends.find(
+        p => p.pendingData.id.toString() === auth.user._id
+      )
+    : false;
+
+  const isFri = friends.friends
+    ? friends.friends.find(f => f.friendData.id.toString() === auth.user._id)
+    : false;
+
+  return loading ? (
+    <Spinner />
+  ) : (
     <Fragment>
       <div className='profile__intro'>
+        <div class='profile__intro--addFriend'>
+          {auth.isAuth &&
+          auth.loading === false &&
+          auth.user._id === receiverId ? (
+            <Link to='/edit-profile' className='btn'>
+              &larr;Edit Profile{' '}
+            </Link>
+          ) : loading ? (
+            <div>loading</div>
+          ) : isPending ? (
+            <div>等待回復</div>
+          ) : isFri ? (
+            <div>朋友</div>
+          ) : (
+            <button onClick={onFriReq}>好友邀請</button>
+          )}
+        </div>
         <div className='profile__intro--img'>
           <img src={avatar} alt={name} />
         </div>
@@ -90,5 +141,10 @@ const ProfileTop = ({
     </Fragment>
   );
 };
-
-export default ProfileTop;
+const mapStateToProps = state => ({
+  friends: state.friends
+});
+export default connect(
+  mapStateToProps,
+  { friendRequest, getPendingFriends, getFriends }
+)(ProfileTop);

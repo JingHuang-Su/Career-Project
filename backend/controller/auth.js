@@ -135,13 +135,13 @@ exports.postSignup = async (req, res, next) => {
   }
 };
 
-// @route    GET /auth/friend
+// @route    GET /auth/friend/:userId
 // @desc     get all of friends from user
 // @access   Private
 
 exports.getFriends = async (req, res, next) => {
   try {
-    const userId = req.user.id;
+    const userId = req.params.userId;
     const allfriends = await User.findById(userId).select('friends');
     res.json(allfriends);
   } catch (error) {
@@ -173,13 +173,13 @@ exports.delFriend = async (req, res, next) => {
   }
 };
 
-// @route    GET /auth/pending
+// @route    GET /auth/pending/userId
 // @desc     get all of pending friend from user
 // @access   Private
 
 exports.getPendingFriends = async (req, res, next) => {
   try {
-    const userId = req.user.id;
+    const userId = req.params.userId;
     const users = await User.findById(userId).select('pendingfriends');
 
     res.json(users);

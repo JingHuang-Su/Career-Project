@@ -422,3 +422,53 @@ export const removeCer = (
 //     });
 //   }
 // };
+
+export const friendRequest = receiverId => async dispatch => {
+  try {
+    const res = await axios.put(`/profile/${receiverId}/friendrequest`);
+
+    dispatch({
+      type: GET.GET_PENDING,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: GET.FRIEND_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};
+
+export const getFriends = profileownerId => async dispatch => {
+  try {
+    const res = await axios.get(`/auth/friends/${profileownerId}`);
+
+    dispatch({
+      type: GET.GET_FRIEND,
+      payload: res.data
+    });
+    console.log(res.data);
+  } catch (error) {
+    dispatch({
+      type: GET.FRIEND_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};
+
+export const getPendingFriends = profileownerId => async dispatch => {
+  try {
+    const res = await axios.get(`/auth/pending/${profileownerId}`);
+
+    dispatch({
+      type: GET.GET_PENDING,
+      payload: res.data
+    });
+    console.log(res.data);
+  } catch (error) {
+    dispatch({
+      type: GET.FRIEND_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};

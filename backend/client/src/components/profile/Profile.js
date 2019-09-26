@@ -22,20 +22,16 @@ const Profile = ({
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]);
 
-  return loading || profile === null ? (
+  return loading || profile === null || auth.loading === true ? (
     <Spinner />
   ) : (
     <Fragment>
-      {auth.isAuth &&
-        auth.loading === false &&
-        auth.user.id === profile.user._id && (
-          <Link to='/edit-profile' className='btn'>
-            &larr;Edit Profile{' '}
-          </Link>
-        )}
-
       <section class='profile'>
-        <ProfileTop profile={profile} />
+        <ProfileTop
+          profile={profile}
+          auth={auth}
+          receiverId={profile.user._id}
+        />
         {profile.about && <ProfileAbout profile={profile} />}
         <Experience experience={profile.experience} />
         <Education education={profile.education} />

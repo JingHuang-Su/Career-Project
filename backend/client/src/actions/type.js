@@ -30,3 +30,9 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
 export const GET_REPOS = 'GET_REPOS';
 export const CER_SKILL = 'CER_SKILL';
+
+//friend
+
+export const GET_FRIEND = 'GET_FRIEND';
+export const GET_PENDING = 'GET_PENDING';
+export const FRIEND_ERROR = 'FRIEND_ERROR';
