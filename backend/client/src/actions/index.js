@@ -25,6 +25,7 @@ export const loadUser = () => async dispatch => {
       type: GET.USER_LOADED,
       payload: res.data
     });
+    console.log(res.data);
   } catch (error) {
     dispatch({
       type: GET.AUTH_ERROR
@@ -66,13 +67,14 @@ export const loginUser = ({ email, password }) => async dispatch => {
       type: GET.LOGIN_SUCCESS,
       payload: res.data
     });
-
+    
     dispatch(loadUser());
   } catch (error) {
-    const errors = error.response.data.errors;
-    if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
+    console.error(error)
+    // const errors = error.response.data.errors;
+    // if (errors) {
+    //   errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    // }
 
     dispatch({
       type: GET.LOGIN_FAIL
@@ -465,6 +467,29 @@ export const getPendingFriends = profileownerId => async dispatch => {
       payload: res.data
     });
     console.log(res.data);
+  } catch (error) {
+    dispatch({
+      type: GET.FRIEND_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};
+
+export const acceptOrRejectFriend = (id, status) => async dispatch => {
+  try {
+    let res;
+    if (status === 'accept') {
+      res = await axios.put(`/auth/pending/${status}/${id}`);
+    }
+    if (status === 'reject') {
+      res = await axios.delete(`/auth/pending/${status}/${id}`);
+    }
+    console.log(res.data);
+
+    dispatch({
+      type: GET.GET_PENDING,
+      payload: res.data
+    });
   } catch (error) {
     dispatch({
       type: GET.FRIEND_ERROR,

@@ -227,7 +227,7 @@ exports.acceptPendingFriends = async (req, res, next) => {
       }
     });
     await user.save();
-    res.json(user);
+    res.json(user.pendingfriends);
   } catch (error) {
     console.log(error.message);
     res.status(500).send('Server Error');
@@ -249,10 +249,10 @@ exports.rejectPendingFriends = async (req, res, next) => {
       u => u._id.toString() === newfriendsPendingId.toString()
     );
 
-    const remove = user.pendingfriends.splice(prepareTransToFriend, 1);
+    //  user.pendingfriends.splice(prepareTransToFriend, 1);
 
     await user.save();
-    res.json(remove);
+    res.json(user.pendingfriends);
   } catch (error) {
     console.log(error.message);
     res.status(500).send('Server Error');

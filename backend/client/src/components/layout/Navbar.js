@@ -5,27 +5,31 @@ import { logout } from '../../actions';
 import logo from '../img/logo1.png';
 import sprite from '../img/sprite.svg';
 
-const Navbar = ({ auth, auth: { isAuth, loading }, logout }) => {
+const Navbar = ({ auth, logout }) => {
   const guestlinks = (
     <ul className='navigation__list'>
       <li className='navigation__item'>
-        <Link to='/posts' className='navigation__link'>
-          文章
+        <Link to='/profiles' className='user__nav--profile-link'>
+          <svg>
+            <use xlinkHref={`${sprite}#connection`} />
+          </svg>
         </Link>
       </li>
       <li className='navigation__item'>
-        <Link to='/profiles' className='navigation__link'>
-          開發者
+        <Link to='/posts' className='user__nav--profile-link'>
+          <svg>
+            <use xlinkHref={`${sprite}#article`} />
+          </svg>
         </Link>
       </li>
       <li className='navigation__item'>
-        <Link to='/signup' className='navigation__link'>
-          註冊
+        <Link to='/signup' className='user__nav--profile-link'>
+          <span>註冊</span>
         </Link>
       </li>
       <li className='navigation__item'>
-        <Link to='/login' className='navigation__link'>
-          登入
+        <Link to='/login' className='user__nav--profile-link'>
+          <span>登入</span>
         </Link>
       </li>
     </ul>
@@ -64,15 +68,13 @@ const Navbar = ({ auth, auth: { isAuth, loading }, logout }) => {
           <div className='user__nav--profile-chat'>
             <div className='user__nav--profile-who'>JingHuang-Su</div>
             <div className='user__nav--profile-text'>
-              &rdca; <span>Hello, How's going??</span>
+              <span>Hello, How's going??</span>
             </div>
           </div>
           <div className='user__nav--profile-chat'>
-            <div className='user__nav--profile-who'>
-              <Link>Amy Liu </Link>
-            </div>
+            <div className='user__nav--profile-who'>Amy Liu</div>
             <div className='user__nav--profile-text'>
-              &rdca;<span>Yes, definitly true</span>
+              <span>Yes, definitly true</span>
             </div>
           </div>
 
@@ -84,7 +86,7 @@ const Navbar = ({ auth, auth: { isAuth, loading }, logout }) => {
 
       <li className='navigation__item user__nav--user'>
         <img
-          src={!loading && auth.user.avatar}
+          src={auth.user ?  auth.user.avatar : <p>loading</p>}
           alt='photo'
           className='user__nav--user-photo'
         />
@@ -100,7 +102,10 @@ const Navbar = ({ auth, auth: { isAuth, loading }, logout }) => {
               </Link>
             </li>
             <li className='user__nav--profile-item'>
-              <Link to='/friend' className='user__nav--profile-link'>
+              <Link
+                to={auth.user ? `/friend/${auth.user._id}` : "/"}
+                className='user__nav--profile-link'
+              >
                 <svg>
                   <use xlinkHref={`${sprite}#team`} />
                 </svg>
@@ -129,7 +134,11 @@ const Navbar = ({ auth, auth: { isAuth, loading }, logout }) => {
         <img src={logo} alt='SYK logo' className='logo' />
       </Link>
       <nav className='navigation__nav'>
-        {!loading && <Fragment>{isAuth ? authlinks : guestlinks}</Fragment>}
+        {!auth.loading && (
+          <Fragment>
+            {auth.isAuth && auth.user ? authlinks : guestlinks}
+          </Fragment>
+        )}
       </nav>
     </header>
   );
