@@ -67,10 +67,10 @@ export const loginUser = ({ email, password }) => async dispatch => {
       type: GET.LOGIN_SUCCESS,
       payload: res.data
     });
-    
+
     dispatch(loadUser());
   } catch (error) {
-    console.error(error)
+    console.error(error);
     // const errors = error.response.data.errors;
     // if (errors) {
     //   errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
@@ -496,4 +496,18 @@ export const acceptOrRejectFriend = (id, status) => async dispatch => {
       payload: { msg: error.response.statusText, status: error.response.status }
     });
   }
+};
+
+export const getMsg = chater => async dispatch => {
+  try {
+    const res = await axios.get(`/message/${chater}`);
+    console.log(res.data);
+    dispatch({ type: GET.GET_MSG, payload: res.data });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const postMsg = (formData, receiver) => async dispatch => {
+  await axios.post(`/message/${receiver}`, formData, setHeaderConfig);
 };

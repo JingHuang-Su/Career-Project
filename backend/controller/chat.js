@@ -1,5 +1,6 @@
 const User = require('../model/User');
 const Chat = require('../model/Chat');
+const io = require('../socket');
 // @route    GET /message/:user_id
 // @desc     send msg to the people who match "user_id"
 // @access   Private
@@ -17,16 +18,19 @@ exports.getmsg = async (req, res, next) => {
     const target = myfriends.friends.find(
       friend => friend.friendData.id.toString() === receiverId.toString()
     );
+    let data;
     if (target.hasbeenmsg) {
-      const data = await Chat.find({
+      data = await Chat.find({
         $and: [
           { $or: [{ from: myId }, { from: receiverId }] },
           { $or: [{ to: receiverId }, { to: myId }] }
         ]
       });
-      res.status(201).json(data);
+
+      res.json(data);
     } else {
-      res.status(201).send('no info here');
+      data = [];
+      res.json(data);
     }
   } catch (error) {
     console.error(error.message);
@@ -64,6 +68,9 @@ exports.postmsg = async (req, res, next) => {
     const msg = await newMsg.save();
 
     res.json(msg);
+
+    io.getIO().emit('message', { action: 'new', msg: msg });
+    io.getIO().emit('message', { action: 'new', msg: msg });
 
     let myfriends = await User.findById(myId).select('friends');
     let target = myfriends.friends.find(

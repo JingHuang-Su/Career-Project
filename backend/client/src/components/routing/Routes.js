@@ -16,6 +16,7 @@ import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
 import Dashboard from '../dashboard/Dashboard';
 import Friend from '../friends/Friend';
+import Chat from '../chat/Chat';
 
 import NotFound from '../layout/NotFound';
 import PrivateRoute from './PrivateRoute';
@@ -39,7 +40,7 @@ const Routes = () => {
       <PrivateRoute exact path='/create-profile' component={CreateProfile} />
       <PrivateRoute exact path='/edit-profile' component={EditProfile} />
       <PrivateRoute exact path='/friend/:id' component={Friend} />
-
+      <PrivateRoute exact path='/message/:id' component={Chat} />
       <PrivateRoute exact path='/profiles/:id' component={Profile} />
       <PrivateRoute
         exact

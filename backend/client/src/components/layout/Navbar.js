@@ -51,21 +51,14 @@ const Navbar = ({ auth, logout }) => {
           </svg>
         </Link>
       </li>
-      <li className='navigation__item'>
-        <Link to='/notification' className='user__nav--profile-link'>
+      <li className='navigation__item user__nav--user'>
+        <Link to='/dashboard' className='user__nav--profile-link'>
           <svg>
             <use xlinkHref={`${sprite}#notifications-bell-button`} />
           </svg>
         </Link>
-      </li>
-      <li className='navigation__item user__nav--user'>
-        <Link to='/message' className='user__nav--profile-link'>
-          <svg>
-            <use xlinkHref={`${sprite}#chat-1`} />
-          </svg>
-        </Link>
         <div className='user__nav--profile'>
-          <div className='user__nav--profile-chat'>
+          {/* <div className='user__nav--profile-chat'>
             <div className='user__nav--profile-who'>JingHuang-Su</div>
             <div className='user__nav--profile-text'>
               <span>Hello, How's going??</span>
@@ -76,17 +69,43 @@ const Navbar = ({ auth, logout }) => {
             <div className='user__nav--profile-text'>
               <span>Yes, definitly true</span>
             </div>
-          </div>
+          </div> */}
 
           <div className='user__nav--profile-center'>
-            <Link to='/message'>更多</Link>
+            <div>WORK IN PROGRESS</div>
+          </div>
+        </div>
+      </li>
+      <li className='navigation__item user__nav--user'>
+        <Link to='/message' className='user__nav--profile-link'>
+          <svg>
+            <use xlinkHref={`${sprite}#chat-1`} />
+          </svg>
+        </Link>
+        <div className='user__nav--profile'>
+          {/* <div className='user__nav--profile-chat'>
+            <div className='user__nav--profile-who'>JingHuang-Su</div>
+            <div className='user__nav--profile-text'>
+              <span>Hello, How's going??</span>
+            </div>
+          </div>
+          <div className='user__nav--profile-chat'>
+            <div className='user__nav--profile-who'>Amy Liu</div>
+            <div className='user__nav--profile-text'>
+              <span>Yes, definitly true</span>
+            </div>
+          </div> */}
+
+          <div className='user__nav--profile-center'>
+            <div>WORK IN PROGRESS</div>
+            <Link to={auth.user ? `/friend/${auth.user._id}` : '/'}>更多</Link>
           </div>
         </div>
       </li>
 
       <li className='navigation__item user__nav--user'>
         <img
-          src={auth.user ?  auth.user.avatar : <p>loading</p>}
+          src={auth.user ? auth.user.avatar : <p>loading</p>}
           alt='photo'
           className='user__nav--user-photo'
         />
@@ -103,7 +122,7 @@ const Navbar = ({ auth, logout }) => {
             </li>
             <li className='user__nav--profile-item'>
               <Link
-                to={auth.user ? `/friend/${auth.user._id}` : "/"}
+                to={auth.user ? `/friend/${auth.user._id}` : '/'}
                 className='user__nav--profile-link'
               >
                 <svg>

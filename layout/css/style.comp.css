@@ -138,7 +138,8 @@ body {
 .alert {
   text-align: center;
   font-size: 1.3rem;
-  font-weight: 600; }
+  font-weight: 600;
+  z-index: 999; }
   .alert-danger {
     color: #eb2f64; }
   .alert-success {
@@ -963,12 +964,19 @@ body {
       position: absolute;
       top: 10px;
       right: 20px; }
+      .profile__intro--addFriend > div {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 1.5rem;
+        font-weight: 600; }
+      .profile__intro--addFriend a,
       .profile__intro--addFriend button {
         color: rgba(0, 0, 0, 0.54);
         border: none;
+        text-decoration: none;
         background-color: inherit;
         font-size: 1.5rem;
         font-weight: 600; }
+        .profile__intro--addFriend a:hover,
         .profile__intro--addFriend button:hover {
           color: black; }
     .profile__intro--website a {
@@ -1316,13 +1324,19 @@ body {
           border-radius: 100%; }
 
 .chatroom {
-  grid-area: 2 / full-start/3/full-end;
+  grid-area: 2 / content-start/3/content-end;
   height: 90vh;
   margin: 8rem;
-  display: flex; }
+  height: 100vh; }
+  @media only screen and (max-width: 50em) {
+    .chatroom {
+      grid-area: 2 / full-start/3/full-end;
+      margin: 0rem; } }
 
 .sidebar {
-  flex: 0 0 25%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
   background-color: rgba(0, 0, 0, 0.04); }
   .sidebar__title {
     font-size: 2rem;
@@ -1358,42 +1372,42 @@ body {
     .friendlists__box--head {
       font-size: 1.1rem; }
 
-.content {
-  flex: 0 0 75%;
-  background-color: rgba(0, 0, 0, 0.03);
+.content__chat {
+  flex: 0 0 85%;
+  margin-bottom: auto;
   display: flex;
   flex-direction: column; }
-  .content__chater {
-    flex: 0 0 5%;
-    align-items: flex-start;
-    padding-top: 0.4rem;
-    border-left: 1px solid rgba(0, 0, 0, 0.01);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
-    .content__chater img {
-      height: 4rem;
-      width: 4rem;
-      border-radius: 50%; }
-  .content__chat {
-    flex: 0 0 80%; }
-  .content__msg {
+  .content__chat-you {
+    font-size: 2rem;
+    padding: 1rem;
+    align-self: flex-start; }
+  .content__chat-me {
+    font-size: 2rem;
+    padding: 1rem;
+    align-self: flex-end; }
+
+.content__msg {
+  display: flex;
+  width: 100%;
+  flex: 0 0 15%;
+  align-items: center; }
+  .content__msg-form {
     display: flex;
     width: 100%;
-    padding-bottom: 1.1rem;
-    flex: 0 0 15%;
     align-items: center; }
-    .content__msg-left {
-      flex: 0 0 90%; }
-    .content__msg-right {
-      flex: 0 0 10%; }
-    .content__msg button {
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      background-color: rgba(255, 255, 255, 0.5);
-      width: 100%;
-      height: 5.7rem; }
-      .content__msg button svg {
-        height: 2rem;
-        width: 2rem;
-        fill: #cfcdcd; }
+  .content__msg-left {
+    flex: 0 0 90%; }
+  .content__msg-right {
+    flex: 0 0 10%; }
+  .content__msg button {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 5.7rem; }
+    .content__msg button svg {
+      height: 2rem;
+      width: 2rem;
+      fill: #cfcdcd; }
 
 .type__input {
   font-size: 1.5rem;
@@ -1419,6 +1433,12 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: center; }
+  @media only screen and (max-width: 50em) {
+    .friend__list {
+      grid-area: 2 / content-start/3/content-end;
+      height: 90vh;
+      margin: 1rem;
+      padding: 0; } }
   .friend__list--box {
     width: 100%;
     height: 15vh;
@@ -1437,7 +1457,8 @@ body {
       display: flex;
       margin-top: 1rem;
       margin-left: 2rem; }
-      .friend__list--box--btnlist a {
+      .friend__list--box--btnlist a,
+      .friend__list--box--btnlist button {
         text-decoration: none;
         font-size: 1.5rem;
         font-family: Noto Serif TC, serif;
@@ -1447,9 +1468,11 @@ body {
         font-weight: 600;
         border-radius: 5px; }
         @media only screen and (max-width: 50em) {
-          .friend__list--box--btnlist a {
+          .friend__list--box--btnlist a,
+          .friend__list--box--btnlist button {
             font-size: 2rem; } }
-        .friend__list--box--btnlist a:hover {
+        .friend__list--box--btnlist a:hover,
+        .friend__list--box--btnlist button:hover {
           background-color: #e2e2ec; }
   .friend__list--title {
     align-self: flex-start;
@@ -1458,12 +1481,14 @@ body {
     padding: 1rem 0; }
     .friend__list--title div {
       margin-right: 2rem; }
-      .friend__list--title div a {
+      .friend__list--title div a,
+      .friend__list--title div button {
         font-size: 2rem;
         color: rgba(0, 0, 0, 0.54);
         border: none;
         text-decoration: none;
         background-color: #eff5ff;
         cursor: pointer; }
-        .friend__list--title div a:hover {
+        .friend__list--title div a:hover,
+        .friend__list--title div button:hover {
           color: black; }

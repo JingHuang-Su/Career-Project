@@ -52,9 +52,7 @@ const ProfileTop = ({
           {auth.isAuth &&
           auth.loading === false &&
           auth.user._id === receiverId ? (
-            <Link to='/edit-profile' className='btn'>
-              &larr;Edit Profile{' '}
-            </Link>
+            <Link to='/edit-profile'>&larr;Edit Profile </Link>
           ) : loading ? (
             <div>loading</div>
           ) : isPending ? (

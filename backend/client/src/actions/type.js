@@ -36,3 +36,8 @@ export const CER_SKILL = 'CER_SKILL';
 export const GET_FRIEND = 'GET_FRIEND';
 export const GET_PENDING = 'GET_PENDING';
 export const FRIEND_ERROR = 'FRIEND_ERROR';
+
+//msg
+
+export const GET_MSG = 'GET_MSG';
+export const POST_MSG = 'POST_MSG';

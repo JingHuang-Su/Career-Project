@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import sprite from '../img/sprite.svg';
+
 import {
   acceptOrRejectFriend,
   getFriends,
@@ -37,7 +37,7 @@ const Friend = ({
   const onClick = e => {
     setButtonData({ category: e.target.value });
   };
-  console.log(category)
+  console.log(category);
   return loading ? (
     <Spinner />
   ) : (
