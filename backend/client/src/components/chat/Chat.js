@@ -12,7 +12,7 @@ const Chat = ({ msg, match, getMsg }) => {
     const fetchData = async () => {
       getMsg(match.params.id);
 
-      const socket = openSocket('http://localhost:5000');
+      const socket = openSocket();
       socket.on('message', data => {
         if (data.action === 'new') {
           getMsg(match.params.id);

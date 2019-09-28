@@ -5,7 +5,7 @@
   padding: 0 10rem;
 
   @media only screen and (max-width: $bp-medium) {
-    grid-area: 2 / content-start/3/content-end;
+    grid-area: 2 / full-start/3/full-end;
     height: 90vh;
     margin: 1rem;
     padding: 0;
