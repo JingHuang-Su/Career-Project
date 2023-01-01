@@ -15,7 +15,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.2",
-    "config": "^3.2.2",
+    "config": "^3.3.8",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.2.0",
     "csurf": "^1.10.0",
